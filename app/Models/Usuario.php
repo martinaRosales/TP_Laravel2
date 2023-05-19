@@ -12,6 +12,13 @@ class Usuario extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'usuarios';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>

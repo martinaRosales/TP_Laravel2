@@ -26,16 +26,17 @@ class LoginRequest extends FormRequest {
     }
 
     public function getCredentials() {
-        $nombreUsuario = $this->get('usuario');
+        $nombreUsuario = $this->get( 'usuario' );
+        $contraseña = $this->get( 'password' );
 
         $array = [
             'usuario' => $nombreUsuario,
-            'password' => $this->get( 'password' )
+            'password' => $contraseña
         ];
         if( $this->isEmail($nombreUsuario) ){
             $array = [
                 'email' => $nombreUsuario, 
-                'password' => $this->get( 'password' )
+                'password' => $contraseña
             ];
         }
         return $array;

@@ -41,16 +41,10 @@ Route::get( '/help', function() {
 })->name( 'help' );
 
 // Auth folder
-Route::get( '/login', function() {
-  return view( 'auth.login' );
-})->name( 'login' );
-
 Route::get( '/login', [LoginControlador::class, 'show'] )->name( 'login' );
-
 Route::post( '/login', [LoginControlador::class, 'login'] );
 
 Route::get( '/registro', [RegistroUsuarioControlador::class, 'show'] )->name( 'registro' );
-
 Route::post( '/registro', [RegistroUsuarioControlador::class, 'registro'] );
 
 Route::get( '/logout', function() {
