@@ -4,7 +4,8 @@
 
 @section('contenido')
 <h1>Formulario de registro</h1>
-<form id="formulario" method="POST">
+<form id="formulario" action="{{ route('registrar') }}" method="POST">
+  @csrf
   <div class="formulario active">
     <div class="row mb-3">
       <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
@@ -107,7 +108,8 @@
       </div>
     </div>
   </div>
-  <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button>
+   <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
+  <input type="submit" value="Registrar" class="btn btn-success">
 </form>
 <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
