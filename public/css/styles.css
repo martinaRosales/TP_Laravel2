@@ -1,0 +1,32 @@
+.figure-img:hover {
+    cursor: pointer;
+}
+
+.error{
+    border: solid 1px red !important;
+}
+
+.correcto{
+    border: solid 1px green !important;
+}
+
+#nav {
+    background-color: rgba(0, 0, 0, 80);
+}
+
+#nav a {
+    color: white;
+}
+
+.bi-moon-fill {
+    color: white;
+}
+
+.bi-list {
+    color: white;
+}
+
+ul{
+    margin-top: 1em;
+    list-style: none;
+}
