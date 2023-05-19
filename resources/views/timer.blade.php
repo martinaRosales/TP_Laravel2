@@ -21,21 +21,40 @@
 
 <div>
   <div class="divider d-flex align-items-center my-4">
-    <p class="text-center fw-bold mx-3 mb-0">Resultados</p>
+    <p class="text-center fw-bold mx-3 mb-0 fs-2">Resultados</p>
   </div>
   <form>
     <!-- Categoría -->
     <div class="form-outline mb-4">
-      <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Ingrese la categoría" required>
       <label for="categoria" class="form-label">Categoría</label>
+      <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Ingrese la categoría" required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
+    
     <!-- Ganador -->
     <div class="form-outline mb-4">
-      <input type="text" class="form-control" id="ganador" name="ganador" placeholder="Ingrese al ganador" required>
       <label for="ganador" class="form-label">Ganador</label>
+      <input type="text" class="form-control" id="ganador" name="ganador" placeholder="Ingrese al ganador" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+    <!-- Tiempo que tardaron  y el que se hayan pasado -->
+    <div class="form-outline mb-4">
+      <label for="tiempo" class="form-label">Tiempo de Competencia</label>
+      <input type="text" class="form-control" id="tiempo" name="tiempo" placeholder="Ingrese el tiempo que duro la competencia" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+
+    <!-- Tiempo en overtime  -->
+    <div class="form-outline mb-4">
+      <label for="overtime" class="form-label">Tiempo despues del overtime</label>
+      <input type="text" class="form-control" id="overtime" name="overtime" placeholder="Ingrese el tiempo transcurrido en overtime" required>
       <div class="valid-feedback">
         Looks good!
       </div>
