@@ -20,6 +20,8 @@ class RegistroRequest extends FormRequest {
     public function rules(): array {
         return [
             'usuario' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
             'email' => 'required',
             'password' => 'required',
             'password_confirmacion' => 'required|same:password'

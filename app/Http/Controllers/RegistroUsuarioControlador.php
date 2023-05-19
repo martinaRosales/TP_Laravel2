@@ -14,5 +14,6 @@ class RegistroUsuarioControlador extends Controller {
 
     public function registro( RegistroRequest $request ){
         $usuario = Usuario::create( $request->validated() );
+        return redirect('/login')->with('success', 'Cuenta creada correctamente' );
     }
 }

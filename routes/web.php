@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\RegistroControlador;
+use App\Http\Controllers\RegistroUsuarioControlador;
+use App\Http\Controllers\LoginControlador;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,13 +45,20 @@ Route::get( '/login', function() {
   return view( 'auth.login' );
 })->name( 'login' );
 
+Route::get( '/login', [LoginControlador::class, 'show'] )->name( 'login' );
+
+Route::post( '/login', [LoginControlador::class, 'login'] );
+
+Route::get( '/registro', [RegistroUsuarioControlador::class, 'show'] )->name( 'registro' );
+
+Route::post( '/registro', [RegistroUsuarioControlador::class, 'registro'] );
+
 Route::get( '/logout', function() {
   return view( 'auth.logout' );
 })->name( 'logout' );
 
-Route::get( '/registro', function() {
-  return view( 'auth.registro' );
-})->name( 'registro' );
+
+
 
 Route::get('/materia',function(){
   return [

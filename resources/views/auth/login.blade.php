@@ -13,20 +13,22 @@
                 <img src="img/pruebinha_login1.jpg" class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form>
+
+                <form action="/login" method="POST">
+                    @csrf
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">LOGIN</p>
                     </div>
 
-                    <!-- Email input -->
+                    <!-- Usuario input -->
                     <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese un email válido" />
-                        <label class="form-label" for="form3Example3">Dirección email</label>
+                        <input id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese su usuario" name="usuario" />
+                        <label class="form-label" for="usuario">Usuario</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
-                        <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Ingrese contraseña" />
+                        <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Ingrese su contraseña" name="password" />
                         <label class="form-label" for="form3Example4">Contraseña</label>
                     </div>
 
@@ -45,7 +47,7 @@
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
                     </div>
 
                 </form>

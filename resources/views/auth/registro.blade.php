@@ -10,10 +10,19 @@
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form class="needs-validation">
+                <form class="needs-validation" action="/registro" method="POST">
                     @csrf
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">REGISTRO</p>
+                    </div>
+
+                    <!-- Nombre de Usuario -->
+                    <div class="form-outline mb-4">
+                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario" required>
+                        <label for="usuario" class="form-label">Nombre de usuario</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
                     </div>
 
                     <!-- Nombre -->
@@ -34,14 +43,6 @@
                         </div>
                     </div>
 
-                    <!-- Teléfono -->
-                    <div class=" form-outline mb-4">
-                        <div class="input-group has-validation">
-                            <span class="input-group-text" id="numeroTelefono">+</span>
-                            <input type="text" class="form-control" id="numeroTelefono" aria-describedby="inputGroupPrepend" name="numeroTelefono" placeholder="Ingrese su número de teléfono" required>
-                        </div>
-                        <label for="validationCustomUsername" class="form-label">Número de teléfono</label>
-                    </div>
                     <!-- Email -->
                     <div class="form-outline mb-4">
                         <input type="email" id="email" class="form-control form-control-lg" placeholder="Ingrese un email válido" name="email" required />
@@ -50,13 +51,13 @@
 
                     <!-- Contraseña -->
                     <div class="form-outline0 mb-3">
-                        <input type="password" id="contraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña" name="contraseña" required />
+                        <input type="password" id="contraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña" name="password" required />
                         <label class="form-label" for="contraseña">Contraseña</label>
                     </div>
 
                     <!-- Contraseña  -->
                     <div class="form-outline0 mb-3">
-                        <input type="password" id="repiteContraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" required />
+                        <input type="password" id="repiteContraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" name="password_confirmacion" required />
                         <label class="form-label" for="repiteContraseña">Repita su contraseña</label>
                     </div>
 
