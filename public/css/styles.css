@@ -30,3 +30,7 @@ ul{
     margin-top: 1em;
     list-style: none;
 }
+
+a{
+    text-decoration: none;
+}
