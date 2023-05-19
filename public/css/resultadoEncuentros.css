@@ -1,0 +1,11 @@
+.info-competidores{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    outline: 1px solid black;
+    border-radius: 10px;
+
+}
+
+.competidor{
+    margin:1rem
+}
