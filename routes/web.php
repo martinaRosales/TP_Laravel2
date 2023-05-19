@@ -44,6 +44,10 @@ Route::get( '/logout', function() {
   return view( 'auth.logout' );
 })->name( 'logout' );
 
+Route::get( '/registro', function() {
+  return view( 'auth.registro' );
+})->name( 'registro' );
+
 Route::get('/materia',function(){
   return [
     'materiaYTema'=>[

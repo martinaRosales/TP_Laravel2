@@ -38,7 +38,10 @@
                                 Recordarme
                             </label>
                         </div>
+                        <div class="links">
+                        <a href="/registro" class="text-body">Registrate aquí</a>
                         <a href="#!" class="text-body">Olvidaste tu contraseña?</a>
+                        </div>
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">

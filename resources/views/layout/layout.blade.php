@@ -42,6 +42,9 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
+                <li class="nav-item active">
+                        <a class="nav-link buttonNav" href="/login" name="login">Iniciar sesión</a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link buttonNav" href="/" name="home">Home</a>
                     </li>
