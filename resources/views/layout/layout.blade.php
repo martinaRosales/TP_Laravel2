@@ -49,7 +49,7 @@
                         <a class="nav-link buttonNav" href="/" name="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/cargarComp" name="cargarComp">Cargar competidor</a>
+                        <a class="nav-link buttonNav" href="{{ route('registrar') }}" name="cargarComp">Cargar competidor</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="/timer" name="timer">Timer</a>

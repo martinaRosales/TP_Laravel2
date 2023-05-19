@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroControlador;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Home
-Route::view('/', 'home')->name('home');
-
+Route::view('/', 'home')->name('home'); 
 Route::view('/video','video')->name('video');
 Route::view('/tablaPaginada','tablaPaginada')->name('tabla');
 Route::view('/bancoImagenes', 'imgBank')->name('imagenes');
-Route::view('/cargarComp', 'crear')->name('crear');
 Route::view('/timer', 'timer')->name('timer');
+
+//Registrar competidor
+Route::get('/cargarComp', [RegistroControlador::class, 'index'])->name('registrar');
+Route::post('/cargarComp', [RegistroControlador::class, 'store']);
 
 // Support folder
 Route::get( '/about', function() {
