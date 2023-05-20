@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrarme</button>
+                        <button type="submit" class="btn btn-primary btn-lg boton-submit" style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrarme</button>
                     </div>
 
                 </form>
