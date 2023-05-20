@@ -13,6 +13,7 @@ import './pagination.js'
 import './validarForm2.js'
 import './menu.js'
 import './timer2.js'
+import '.validarRegistro.js'
 
 function visualizarComp() {
   let genero = '';

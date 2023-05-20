@@ -81,4 +81,6 @@
         </div>
     </div>
 </section>
+
+<script src="{{ asset('../../../../../public/js/validarRegistro.js') }}" type="module"></script>
 @endsection
