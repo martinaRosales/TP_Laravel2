@@ -17,26 +17,25 @@
                     </div>
 
                     <!-- Nombre de Usuario -->
-                    <div class="form-outline mb-4">
-                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario" required>
+                    <div class="form-outline mb-3">
+                        <input type="text" class="form-control  form-control-lg" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario" required>
                         <label for="usuario" class="form-label">Nombre de usuario</label>
-                        <div class="valid-feedback">
-                            Looks good!
+                        <div class="input-feedback" for="usuario">
                         </div>
                     </div>
 
                     <!-- Nombre -->
-                    <div class="form-outline mb-4">
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+                    <div class="form-outline mb-3">
+                        <input type="text" class="form-control  form-control-lg" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
                         <label for="nombre" class="form-label">Nombre</label>
-                        <div class="valid-feedback">
-                            Looks good!
+                        <div class="input-feedback" for="nombre">
+                            
                         </div>
                     </div>
 
                     <!-- Apellido -->
-                    <div class="form-outline mb-4">
-                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
+                    <div class="form-outline mb-3">
+                        <input type="text" class="form-control  form-control-lg" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
                         <label for="apellido" class="form-label">Apellido</label>
                         <div class="valid-feedback">
                             Looks good!
@@ -44,7 +43,7 @@
                     </div>
 
                     <!-- Email -->
-                    <div class="form-outline mb-4">
+                    <div class="form-outline mb-3">
                         <input type="email" id="email" class="form-control form-control-lg" placeholder="Ingrese un email válido" name="email" required />
                         <label class="form-label" for="email">Dirección email</label>
                     </div>
@@ -57,7 +56,7 @@
 
                     <!-- Contraseña  -->
                     <div class="form-outline0 mb-3">
-                        <input type="password" id="repiteContraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" name="password_confirmacion" required />
+                        <input type="password" id="repiteContraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" name="password_confirmacion" onblur="validarCampo('#password_confirmacion')" required />
                         <label class="form-label" for="repiteContraseña">Repita su contraseña</label>
                     </div>
 
@@ -82,5 +81,5 @@
     </div>
 </section>
 
-<script src="{{ asset('../../../../../public/js/validarRegistro.js') }}" type="module"></script>
+<script src="js/validarRegistro.js"></script>
 @endsection
