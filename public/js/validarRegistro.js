@@ -20,6 +20,11 @@
 })()
 
 
+//PARA RESOLVER:
+//1. Que el formulario no se envíe si no son válidos todos los campos (lo estoy intentando manejar con booleanos)
+//2. Validar los input de las contraseñas, que estén completos y que sean iguales
+//3. Agregar mensajes breves y descriptivos sobre el error en el campo (si está incompleto o los datos no son válidos)
+
 //acá recupero todos los input del formulario
 const formulario = document.querySelectorAll('.needs-validation')
 const inputUsuario = document.querySelector('#usuario')
