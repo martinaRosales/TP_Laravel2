@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Session;
 
 class LoginControlador extends Controller {
     //
     public function show() {
+        if( Auth::check() ){
+            return redirect('/');
+        }
         return view( 'auth.login' );
     }
 
@@ -17,7 +21,7 @@ class LoginControlador extends Controller {
 
         if( !Auth::validate($credenciales) ){
             // este return de aca esta horrible pero despues lo cambio
-            return redirect()->to('/login')->withErrors('auth.failed');
+            return redirect()->to('/login')->withErrors('Usuario y/o contraseña incorrectas.');
         }
         $usuario = Auth::getProvider()->retrieveByCredentials($credenciales);
 
@@ -28,6 +32,12 @@ class LoginControlador extends Controller {
 
     public function authenticated( Request $request, $usuario ){
         return redirect('/');
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+        return redirect()->to('/');
     }
 
 }

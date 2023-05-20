@@ -47,9 +47,7 @@ Route::post( '/login', [LoginControlador::class, 'login'] );
 Route::get( '/registro', [RegistroUsuarioControlador::class, 'show'] )->name( 'registro' );
 Route::post( '/registro', [RegistroUsuarioControlador::class, 'registro'] );
 
-Route::get( '/logout', function() {
-  return view( 'auth.logout' );
-})->name( 'logout' );
+Route::get( '/logout', [LoginControlador::class, 'logout'])->name( 'logout' );
 
 
 

@@ -36,6 +36,19 @@
         <div class="container">
             <a class="navbar-brand" href="/"><img src="{{ asset('img/Logo.png') }}" style="width: 80px;" /> Taekwondo 2023</a>
 
+            <!-- Acá va el contenido que se quiera mostrar cuando haya una sesión iniciada -->
+            @auth
+                <!-- obtengo el objeto autenticación, que luego pasa a obtener el objeto de usuario
+                y accedo a la propiedad que contiene el nombre del usuario logueado -->
+                <h2>Usuario: {{ auth()->user()['usuario'] }}</h2>
+                <button class="btn"><a href="/logout">Logout</a></button>
+            @endauth
+
+            <!-- Acá va el contenido que se quiera mostrar cuando no haya una sesión iniciada -->
+            @guest
+
+            @endguest
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list"></i>
             </button>

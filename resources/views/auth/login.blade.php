@@ -16,10 +16,11 @@
 
                 <form action="/login" method="POST">
                     @csrf
+                    
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">LOGIN</p>
                     </div>
-
+                    @include('layout.partials.mensajes')
                     <!-- Usuario input -->
                     <div class="form-outline mb-4">
                         <input id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese su usuario" name="usuario" />

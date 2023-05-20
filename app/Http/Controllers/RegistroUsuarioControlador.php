@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\RegistroRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
 
 class RegistroUsuarioControlador extends Controller {
     //
     public function show() {
+        if( Auth::check() ){
+            return redirect('/');
+        }
         return view( 'auth.registro' );
     }
 

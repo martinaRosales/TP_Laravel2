@@ -15,7 +15,7 @@
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">REGISTRO</p>
                     </div>
-
+                    @include('layout.partials.mensajes')
                     <!-- Nombre de Usuario -->
                     <div class="form-outline mb-3">
                         <input type="text" class="form-control  form-control-lg" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario" required>
