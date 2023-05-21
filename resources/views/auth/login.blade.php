@@ -42,8 +42,8 @@
                             </label>
                         </div>
                         <div class="links">
-                        <a href="/registro" class="text-body">Registrate aquí</a>
                         <a href="#!" class="text-body">Olvidaste tu contraseña?</a>
+                        <a href="/registro" class="text-primary">Registrate aquí</a>
                         </div>
                     </div>
 

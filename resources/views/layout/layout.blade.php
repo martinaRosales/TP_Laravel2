@@ -63,25 +63,25 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link buttonNav" href="/login" name="login">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item active">
                         <a class="nav-link buttonNav" href="/" name="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="{{ route('registrar') }}" name="cargarComp">Cargar competidor</a>
+                        <a class="nav-link buttonNav" href="{{ route('registrar') }}" name="cargarComp">Inscribir Competidor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/timer" name="timer">Timer</a>
+                        <a class="nav-link buttonNav" href="/timer" name="timer">Reloj</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/video" name="video">Video</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="/tablaPaginada" name="tabla">Competidores inscriptos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="/asignarRoles" name="asignarRoles">Asignar roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link buttonNav" href="/" name="resultados">Resultados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link buttonNav" href="/login" name="login"><i class="bi bi-person-fill"></i></a>
                     </li>
                     <button id="darkBtn" class="btn rounded-fill"><i id="icon" class="bi bi-moon-fill"></i></button>
                 </ul>
