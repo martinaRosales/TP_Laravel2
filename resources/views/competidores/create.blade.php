@@ -4,7 +4,7 @@
 
 @section('contenido')
   <h1>Inscribir Competidor</h1>
-  <form id="formulario" action="{{ route('registrar') }}" method="POST">
+  <form id="formulario" action="{{ route('competidores.store') }}" method="POST">
   @csrf
   @include('layout.partials.mensajes')
   <div class="formulario active">
@@ -117,4 +117,4 @@
 
 @endsection
 
-<script src="js/validarForm2.js" type="module"></script>
+<script src="../js/validarForm2.js" type="module"></script>
