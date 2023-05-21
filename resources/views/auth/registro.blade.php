@@ -10,7 +10,7 @@
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form class="needs-validation" action="/registro" method="POST">
+                <form class="needs-validation" id="formularioRegistro" action="/registro" method="POST">
                     @csrf
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">REGISTRO</p>
@@ -29,7 +29,7 @@
                         <input type="text" class="form-control  form-control-lg" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
                         <label for="nombre" class="form-label">Nombre</label>
                         <div class="input-feedback" for="nombre">
-                            
+
                         </div>
                     </div>
 
@@ -50,24 +50,30 @@
 
                     <!-- Contraseña -->
                     <div class="form-outline0 mb-3">
-                        <input type="password" id="contraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña" name="password" required />
+                        <input type="password" id="contrasenia" class="form-control form-control-lg" placeholder="Ingrese contraseña" name="password" required />
                         <label class="form-label" for="contraseña">Contraseña</label>
                     </div>
 
                     <!-- Contraseña  -->
                     <div class="form-outline0 mb-3">
-                        <input type="password" id="repiteContraseña" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" name="password_confirmacion" onblur="validarCampo('#password_confirmacion')" required />
+                        <input type="password" id="repiteContrasenia" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" name="password_confirmacion" onblur="validarCampo('#password_confirmacion')" required />
                         <label class="form-label" for="repiteContraseña">Repita su contraseña</label>
                     </div>
 
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Aceptar términos y condiciones
-                            </label>
-                            <div class="invalid-feedback">
-                                Debe aceptar para finalizar el registro
+                    <div>
+                        <div>Tipo de cuenta</div>
+                        <div class="checks" required>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rol" id="competidor" value="competidor">
+                                <label class="form-check-label" for="competidor">
+                                    Competidor
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="rol" id="juez" value="juez">
+                                <label class="form-check-label" for="juez">
+                                    Jurado
+                                </label>
                             </div>
                         </div>
                     </div>

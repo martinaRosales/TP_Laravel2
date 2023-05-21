@@ -197,7 +197,6 @@ arrayCompetidores[14] =
 
 window.addEventListener('load', function () {
     //Se llama a la funcion que imprime los datos de los competidores en pantalla
-    console.log('entra al js')
     tablaCompetidores(arrayCompetidores)
 });
 
@@ -219,7 +218,6 @@ function tablaCompetidores(competidores) {
         pageSize: 5,
         showSizeChanger: true,
         callback: function (data, pagination) {
-            console.log(competidores)
             $('#table-body').html("");
             let arrayRows = [];
             $.each(data, function (index, competidor) {
@@ -280,4 +278,4 @@ function filterByParameter(competidores) {
 
 
 
-export { tablaCompetidores, filterByParameter }
+// export { tablaCompetidores, filterByParameter }

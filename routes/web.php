@@ -26,6 +26,7 @@ Route::view('/video','video')->name('video');
 Route::view('/tablaPaginada','tablaPaginada')->name('tabla');
 Route::view('/bancoImagenes', 'imgBank')->name('imagenes');
 Route::view('/timer', 'timer')->name('timer');
+Route::view('/asignarRoles', 'asignarRoles')->name('asignarRoles');
 
 //Registrar competidor
 Route::get('/cargarComp', [RegistroControlador::class, 'index'])->name('registrar');

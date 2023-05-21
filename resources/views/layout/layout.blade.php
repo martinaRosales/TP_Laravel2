@@ -6,11 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('img/Logo.png') }}">
-    
+
     <!-- Custom CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Pagination -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/paginationjs/dist/pagination.css">
+    <script src="https://cdn.jsdelivr.net/npm/paginationjs@2.1.5/dist/pagination.min.js"></script>
 
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
@@ -38,10 +45,10 @@
 
             <!-- Acá va el contenido que se quiera mostrar cuando haya una sesión iniciada -->
             @auth
-                <!-- obtengo el objeto autenticación, que luego pasa a obtener el objeto de usuario
+            <!-- obtengo el objeto autenticación, que luego pasa a obtener el objeto de usuario
                 y accedo a la propiedad que contiene el nombre del usuario logueado -->
-                <h2>Usuario: {{ auth()->user()['usuario'] }}</h2>
-                <button class="btn"><a href="/logout">Logout</a></button>
+            <h2>Usuario: {{ auth()->user()['usuario'] }}</h2>
+            <button class="btn"><a href="/logout">Logout</a></button>
             @endauth
 
             <!-- Acá va el contenido que se quiera mostrar cuando no haya una sesión iniciada -->
@@ -55,7 +62,7 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                <li class="nav-item active">
+                    <li class="nav-item active">
                         <a class="nav-link buttonNav" href="/login" name="login">Iniciar sesión</a>
                     </li>
                     <li class="nav-item active">
@@ -67,14 +74,14 @@
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="/timer" name="timer">Timer</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link buttonNav" href="/video" name="video">Video</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link buttonNav" href="/tablaPaginada" name="tabla">Competidores inscriptos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/tablaPaginada" name="tabla">Tabla paginada</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/bancoImagenes" name="bancoImagenes">Banco de imágenes</a>
+                        <a class="nav-link buttonNav" href="/asignarRoles" name="asignarRoles">Asignar roles</a>
                     </li>
                     <button id="darkBtn" class="btn rounded-fill"><i id="icon" class="bi bi-moon-fill"></i></button>
                 </ul>
@@ -142,7 +149,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
     <!-- <script src="js/menu.js"></script> -->
 
 </body>
