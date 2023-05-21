@@ -21,6 +21,14 @@ class UsuariosSeeder extends Seeder {
             'password' => '123'
         ])->assignRole('Admin');
 
+        Usuario::create([
+            'usuario' => 'juez',
+            'nombre' => 'Pepe',
+            'apellido' => 'Argento',
+            'email' => 'email@email.com',
+            'password' => '123'
+        ])->assignRole('Juez');
+
     }
 
 }

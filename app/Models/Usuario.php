@@ -31,7 +31,8 @@ class Usuario extends Authenticatable {
         'nombre',
         'apellido',
         'email',
-        'password'
+        'password',
+        'rol'
     ];
 
     /**

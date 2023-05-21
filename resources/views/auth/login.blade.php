@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
 
-<section>
+<section class="vh-100">
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-9 col-lg-6 col-xl-5">
@@ -16,21 +16,21 @@
 
                 <form action="/login" method="POST">
                     @csrf
-
+                    
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">LOGIN</p>
                     </div>
                     @include('layout.partials.mensajes')
                     <!-- Usuario input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="usuario">Usuario</label>
                         <input id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese su usuario" name="usuario" />
+                        <label class="form-label" for="usuario">Usuario</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="form3Example4">Contraseña</label>
                         <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Ingrese su contraseña" name="password" />
+                        <label class="form-label" for="form3Example4">Contraseña</label>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center">
@@ -42,8 +42,8 @@
                             </label>
                         </div>
                         <div class="links">
-                            <a href="#!" class="text-body">Olvidaste tu contraseña?</a>
-                            <a href="/registro" class="text-primary">Registrate aquí</a>
+                        <a href="#!" class="text-body">Olvidaste tu contraseña?</a>
+                        <a href="/registro" class="text-primary">Registrate aquí</a>
                         </div>
                     </div>
 

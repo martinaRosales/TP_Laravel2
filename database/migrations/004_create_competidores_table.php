@@ -4,13 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+    public function up(): void {
         Schema::create('competidores', function (Blueprint $table) {
             $table->id();
             $table->string('legajo')->unique();
@@ -21,6 +19,7 @@ return new class extends Migration
             $table->string('pais_nombre');
             $table->string('email');
             $table->string('genero');
+            $table->string('graduacion');
             $table->float('clasificacion', 5, 2, true);
             // agrega campo timestamp de fecha de eliminacion
             $table->softDeletes();
@@ -34,8 +33,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    public function down(): void {
         Schema::dropIfExists('competidores');
     }
+
 };
