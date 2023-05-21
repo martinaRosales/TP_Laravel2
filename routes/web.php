@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegistroControlador;
 use App\Http\Controllers\RegistroUsuarioControlador;
 use App\Http\Controllers\LoginControlador;
+use App\Models\Rol;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::view('/tablaPaginada','tablaPaginada')->name('tabla');
 Route::view('/bancoImagenes', 'imgBank')->name('imagenes');
 Route::view('/timer', 'timer')->name('timer');
 Route::view('/asignarRoles', 'asignarRoles')->name('asignarRoles');
+Route::view('/resultados','resultados')->name('resultados');
 
 //Registrar competidor
 Route::get('/cargarComp', [RegistroControlador::class, 'index'])->name('registrar');
