@@ -11,6 +11,19 @@ class RegistroControlador extends Controller {
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'nombre' => ['required'],
+            'apellido' => ['required'],
+            'du' => ['required'],
+            'fecha-nacimiento' => ['required'],
+            'pais' => ['required'],
+            'email' => ['required'],
+            'genero' => ['required', 'min:4'],
+            'gal' => ['required', 'unique:competidores,legajo'],
+            'graduacion' => ['required'],
+            'clasificacion' => ['required'],
+        ]);
+
        Competidor::create([
         'legajo' => $request->get('gal'),
         'nombre' => $request->get('nombre'),
@@ -23,6 +36,7 @@ class RegistroControlador extends Controller {
         'clasificacion' => $request->get('clasificacion'),
        ]);
 
+       return to_route('tabla')->with('success', 'El competidor se creo correctamente');
     }
 
 }
