@@ -8,7 +8,7 @@
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-8 col-lg-6 col-xl-6 offset-xl-1">
-                <form class="needs-validation" id="formularioRegistro" action="/registro" method="POST">
+                <form  id="formularioRegistro" action="/registro" method="POST">
                     @csrf
                     <div class="divider d-flex align-items-center my-4">
                         <p class="text-center fw-bold mx-3 mb-0">REGISTRO</p>
@@ -60,7 +60,7 @@
 
                     <div>
                         <div>Tipo de cuenta</div>
-                        <div class="checks" required>
+                        <div class="checks" id="checks" required>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="rol" id="competidor" value="competidor">
                                 <label class="form-check-label" for="competidor">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="submit" class="btn btn-primary btn-lg boton-submit" style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrarme</button>
+                        <button type="submit" class="btn btn-primary btn-lg boton-submit" id="botonSubmit" style="padding-left: 2.5rem; padding-right: 2.5rem;" disabled>Registrarme</button>
                     </div>
 
                 </form>
@@ -84,5 +84,5 @@
         </div>
     </div>
     <!-- </section> -->
-<script src="js/validarRegistro.js"></script>
+<script src="js/validarRegistroUsuario.js"></script>
 @endsection
