@@ -3,13 +3,11 @@
 @section('title', 'Registro')
 
 @section('contenido')
-
 <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
-
-<section class="vh-100">
+    <!-- <section class="vh-100"> -->
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <div class="col-md-8 col-lg-6 col-xl-6 offset-xl-1">
                 <form class="needs-validation" id="formularioRegistro" action="/registro" method="POST">
                     @csrf
                     <div class="divider d-flex align-items-center my-4">
@@ -85,7 +83,6 @@
             </div>
         </div>
     </div>
-</section>
-
+    <!-- </section> -->
 <script src="js/validarRegistro.js"></script>
 @endsection

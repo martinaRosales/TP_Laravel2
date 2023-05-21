@@ -3,9 +3,10 @@
 @section('title', 'Cargar competidor')
 
 @section('contenido')
-<h1>Formulario de registro</h1>
-<form id="formulario" action="{{ route('registrar') }}" method="POST">
+  <h1>Inscribir Competidor</h1>
+  <form id="formulario" action="{{ route('registrar') }}" method="POST">
   @csrf
+  @include('layout.partials.mensajes')
   <div class="formulario active">
     <div class="row mb-3">
       <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
