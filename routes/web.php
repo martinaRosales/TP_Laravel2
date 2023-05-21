@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\RegistroControlador;
+use App\Http\Controllers\CompetidorController;
 use App\Http\Controllers\RegistroUsuarioControlador;
 use App\Http\Controllers\LoginControlador;
+use App\Models\Rol;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,14 +24,20 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::view('/', 'home')->name('home'); 
 Route::view('/video','video')->name('video');
-Route::view('/tablaPaginada','tablaPaginada')->name('tabla');
 Route::view('/bancoImagenes', 'imgBank')->name('imagenes');
 Route::view('/timer', 'timer')->name('timer');
 Route::view('/asignarRoles', 'asignarRoles')->name('asignarRoles');
+Route::view('/resultados','resultados')->name('resultados');
 
-//Registrar competidor
-Route::get('/cargarComp', [RegistroControlador::class, 'index'])->name('registrar');
-Route::post('/cargarComp', [RegistroControlador::class, 'store']);
+// Competidores
+Route::get('/competidores', [CompetidorController::class, 'index'])->name('competidores.index'); // Mostramos la vista de la tabla de todos los competidores.
+Route::get('/competidores/crear', [CompetidorController::class, 'create'])->name('competidores.create'); // Mostramos la vista del formulario para cargar competidor.
+Route::post('/competidores', [CompetidorController::class, 'store'])->name('competidores.store'); // Guardamos el competidor en la bd.
+Route::get('/competidores/{competidor}', [CompetidorController::class, 'show'])->name('competidores.show'); // Mostramos la vista de los datos de un competidor especifico.
+Route::get('/competidores/{competidor}/editar', [CompetidorController::class, 'edit'])->name('competidores.edit'); // Mostramos la vista del formulario para editar competidor.
+ // Utilizamos method PATCH al actualizar elementos de la bd y DELETE para elimiar.
+Route::patch('/competidores/{competidor}', [CompetidorController::class, 'update'])->name('competidores.update'); // Actualizamos el competidor en la bd.
+Route::delete('/competidores/{competidor}', [CompetidorController::class, 'destroy'])->name('competidor.destroy'); // Eliminamos competidor de la bd.
 
 // Support folder
 Route::get( '/about', function() {

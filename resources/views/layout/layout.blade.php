@@ -63,25 +63,25 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link buttonNav" href="/" name="home">Home</a>
+                        <a class="nav-link buttonNav" href="{{route('home')}}" name="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="{{ route('registrar') }}" name="cargarComp">Inscribir Competidor</a>
+                        <a class="nav-link buttonNav" href="{{route('competidores.create')}}" name="cargarComp">Inscribir Competidor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/timer" name="timer">Reloj</a>
+                        <a class="nav-link buttonNav" href="{{route('timer')}}" name="timer">Reloj</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/tablaPaginada" name="tabla">Competidores inscriptos</a>
+                        <a class="nav-link buttonNav" href="{{route('competidores.index')}}" name="tabla">Competidores inscriptos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/asignarRoles" name="asignarRoles">Asignar roles</a>
+                        <a class="nav-link buttonNav" href="{{route('asignarRoles')}}" name="asignarRoles">Asignar roles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/" name="resultados">Resultados</a>
+                        <a class="nav-link buttonNav" href="{{route('resultados')}}" name="resultados">Resultados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/login" name="login"><i class="bi bi-person-fill"></i></a>
+                        <a class="nav-link buttonNav" href="{{route('login')}}" name="login"><i class="bi bi-person-fill"></i></a>
                     </li>
                     <button id="darkBtn" class="btn rounded-fill"><i id="icon" class="bi bi-moon-fill"></i></button>
                 </ul>
