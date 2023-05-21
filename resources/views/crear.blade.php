@@ -4,7 +4,7 @@
 
 @section('contenido')
   <h1>Inscribir Competidor</h1>
-  <form id="formulario" action="{{ route('registrar') }}" method="POST">
+  <form id="formulario" action="{{ route('registrar') }}" method="POST" class="border p-4">
   @csrf
   @include('layout.partials.mensajes')
   <div class="formulario active">
