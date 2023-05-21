@@ -23,7 +23,7 @@ return new class extends Migration {
 
             // campo foráneo de esta tabla -> campo referenciado de tabla padre -> tabla padre
             $table->foreign('rol_id')->references('id')
-              ->on('rol');
+              ->on('roles');
         });
     }
 

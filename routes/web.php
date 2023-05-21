@@ -50,6 +50,17 @@ Route::post( '/registro', [RegistroUsuarioControlador::class, 'registro'] );
 Route::get( '/logout', [LoginControlador::class, 'logout'])->name( 'logout' );
 
 
+/**
+ * Rutas por rol en específico
+ * rol:1 = admin
+ * rol:2 = juez
+ * rol:3 = competidor
+ */
+Route::middleware('rol:1')->group(function () {
+  // Rutas que requieren el rol admin
+  Route::get('/compInscriptos', 'AdminControlador@compInscriptos' )->name( 'compInscriptos' );
+  Route::get('/reloj', 'AdminControlador@reloj')->name( 'reloj' );
+});
 
 
 Route::get('/materia',function(){
