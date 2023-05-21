@@ -62,13 +62,13 @@
                         <div>Tipo de cuenta</div>
                         <div class="checks" id="checks" required>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rol" id="competidor" value="competidor">
+                                <input class="form-check-input" type="radio" name="rol" id="competidor" value="Competidor">
                                 <label class="form-check-label" for="competidor">
                                     Competidor
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="rol" id="juez" value="juez">
+                                <input class="form-check-input" type="radio" name="rol" id="juez" value="Juez">
                                 <label class="form-check-label" for="juez">
                                     Jurado
                                 </label>
