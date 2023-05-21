@@ -78,7 +78,7 @@
                         <a class="nav-link buttonNav" href="/asignarRoles" name="asignarRoles">Asignar roles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="/" name="resultados">Resultados</a>
+                        <a class="nav-link buttonNav" href="/resultados" name="resultados">Resultados</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="/login" name="login"><i class="bi bi-person-fill"></i></a>
