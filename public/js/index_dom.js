@@ -13,7 +13,7 @@ import './pagination.js'
 import './validarForm2.js'
 import './menu.js'
 import './timer2.js'
-import './validarRegistro.js'
+import './validarRegistroUsuario.js'
 import './tablaUsuarios.js'
 
 function visualizarComp() {
