@@ -6,8 +6,8 @@
   <h1>Inscribir Competidor</h1>
   <form id="formulario" action="{{ route('registrar') }}" method="POST">
   @csrf
-  @include('layout.partials.mensajes')
-  <div class="formulario active">
+ 
+  
     <div class="row mb-3">
       <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
       <div class="col-sm-8">
@@ -33,8 +33,8 @@
         <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" min="1960-01-01" />
       </div>
     </div>
-  </div>
-  <div class="formulario">
+  
+  
     <div class="row mb-3">
       <label for="pais" class="col-sm-4 col-form-label">País de origen</label>
       <div class="col-sm-8">
@@ -65,8 +65,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="formulario">
+ 
+
     <div class="row mb-3">
       <label for="gal" class="col-sm-4 col-form-label">GAL</label>
       <div class="col-sm-8">
@@ -108,7 +108,7 @@
         <input type="text" class="form-control" id="clasificacion" name="clasificacion" placeholder="Ingrese su posición en el ranking nacional" pattern="^\S+$" required />
       </div>
     </div>
-  </div>
+  
    <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
   <input type="submit" value="Registrar" class="btn btn-success">
 </form>
