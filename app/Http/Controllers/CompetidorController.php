@@ -50,7 +50,7 @@ class CompetidorController extends Controller
         'clasificacion' => $request->get('clasificacion'),
        ]);
 
-       return to_route('tabla')->with('success', 'El competidor se creo correctamente');
+       return to_route('index')->with('success', 'El competidor se creo correctamente');
     }
 
     // Mostramos el formulario de edicion.
