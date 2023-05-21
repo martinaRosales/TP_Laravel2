@@ -8,8 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class Usuario extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
+    use HasRoles;
 
     /**
      * The table associated with the model.
@@ -28,8 +31,7 @@ class Usuario extends Authenticatable {
         'nombre',
         'apellido',
         'email',
-        'password',
-        'rol_id'
+        'password'
     ];
 
     /**
