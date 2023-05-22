@@ -78,7 +78,7 @@
                         <a class="nav-link buttonNav" href="{{route('competidores.create')}}" name="cargarComp">Inscribir Competidor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link buttonNav" href="{{route('timer')}}" name="timer">Reloj</a>
+                        <a class="nav-link buttonNav" href="{{route('reloj')}}" name="timer">Reloj</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="{{route('competidores.index')}}" name="tabla">Competidores inscriptos</a>
