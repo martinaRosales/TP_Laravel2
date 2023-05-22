@@ -127,7 +127,7 @@
 <!-- Mensajes de Error de js-->
 <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
-
+@include('layout.partials.mensajes')
 @endsection
 
 <script src="../js/validarForm2.js" type="module"></script>
