@@ -116,9 +116,10 @@ class CompetidorController extends Controller
         return to_route('competidores.index')->with('success', 'Competidor eliminado correctamente.');
     }
 
-    public function listar()
+    // Metodos personalizados.
+    public function imprimirDatos()
     {
-        $competidores = Competidor::get();
+        $competidores = Competidor::all();
         return $competidores;
     }
 }

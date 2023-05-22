@@ -13,13 +13,7 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::get();
-        return view('resultados', ['categorias' => $categorias]);
-    }
-
-    public function listar()
-    {
-        $categorias = Categoria::all();
-        return $categorias;
+        return view('categorias.index', ['categorias' => $categorias]);
     }
 
     /**
@@ -91,5 +85,13 @@ class CategoriaController extends Controller
     {
         $categoria->delete();
         return to_route('categorias.index')->with('success', 'Categoria eliminada correctamente.');
+    }
+
+
+    // Metodos personalizados.
+    public function imprimirDatos()
+    {
+        $categorias = Categoria::all();
+        return $categorias;
     }
 }
