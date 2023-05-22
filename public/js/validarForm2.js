@@ -7,7 +7,7 @@ const messages = {
   nombre: "El nombre ingresado es demasiado largo",
   esnumero: "Por favor, ingrese caracteres dentro del abecedario (a-z) en su nombre y apellido",
   fechaNacimiento: "Ingrese una fecha valida, debe tener minimo 6 años de edad",
-  paisOrigen: "El país ingresado no está en los países registrados",
+  paisOrigen: "Pais no ingresado",
   graduacion: "Seleccione su grado de educación",
   clasificacion: "Ingrese un dato valido (Enteros o Decimales unicamente ente 1 y 900), sin espacio en blanco y con un punto en caso de ser decimal",
   email: "Ingrese un correo electrónico válido",
@@ -214,7 +214,7 @@ let nombreValido = false;
 let apellidoValido = false;
 let duValido = false;
 let edadValida = false;
-let paisValido = false; //a validar
+let paisValido = false; 
 let emailValido = false;
 let generoValido = true;
 let galValido = false;
@@ -227,7 +227,7 @@ const nombre = document.getElementById("nombre");
 const apellido = document.getElementById("apellido");
 const du = document.getElementById("du");
 const fechaNac = document.getElementById("fecha-nacimiento");
-const paisOrigen = document.getElementById("pais"); //a validar
+const paisOrigen = document.getElementById("pais"); 
 const email = document.getElementById("email");
 const generoInput = document.querySelector('input[name="genero"]:checked');
 let generoRadios = document.getElementsByName('genero');
@@ -271,7 +271,8 @@ let valuePais;
 paisOrigen.addEventListener('blur', function () {
   const value = this.value;
   valuePais = value;
-  paisValido = validarPais(value);
+  // Realiza la validación aquí y muestra un mensaje si es necesario
+  paisValido = validarCampo(value, 'pais');
   validarCampos();
 });
 
@@ -324,7 +325,6 @@ function validarCampos() {
     btn.style.display = 'block';
     btn.style.background = 'green';
     btn.style.width = 'auto';
-    // agregarCompetidor();
   } else {
     btn.style.display = 'none';
   }
