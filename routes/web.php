@@ -41,7 +41,17 @@ Route::get('/competidores/{competidor}', [CompetidorController::class, 'show'])-
 Route::get('/competidores/{competidor}/editar', [CompetidorController::class, 'edit'])->name('competidores.edit'); // Mostramos la vista del formulario para editar competidor.
  // Utilizamos method PATCH al actualizar elementos de la bd y DELETE para elimiar.
 Route::patch('/competidores/{competidor}', [CompetidorController::class, 'update'])->name('competidores.update'); // Actualizamos el competidor en la bd.
-Route::delete('/competidores/{competidor}', [CompetidorController::class, 'destroy'])->name('competidor.destroy'); // Eliminamos competidor de la bd.
+Route::delete('/competidores/{competidor}', [CompetidorController::class, 'destroy'])->name('competidores.destroy'); // Eliminamos competidor de la bd.
+
+// Categorias
+Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index'); // Mostramos la vista de la tabla de todas los categorias.
+Route::get('/categorias/crear', [CategoriaController::class, 'create'])->name('categorias.create'); // Mostramos la vista del formulario para cargar una categoria.
+Route::post('/categorias', [CategoriaController::class, 'store'])->name('categorias.store'); // Guardamos la categoria en la bd.
+Route::get('/categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show'); // Mostramos la vista de los datos de una categoria especifica.
+Route::get('/categorias/{categoria}/editar', [CategoriaController::class, 'edit'])->name('categorias.edit'); // Mostramos la vista del formulario para editar una categoria.
+Route::patch('/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update'); // Actualizamos la categoria en la bd.
+Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy'); // Eliminamos una categoria de la bd.
+
 
 // Support folder
 Route::get( '/about', function() {
