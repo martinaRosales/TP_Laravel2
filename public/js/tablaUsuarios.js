@@ -176,7 +176,7 @@ function actualizarTabla(){
 
 const tabla = document.querySelectorAll('#tabla-usuarios');
 
-const cuerpoTabla = tabla.getElementById('#table-body')
+// const cuerpoTabla = tabla.getElementById('#table-body')
     // botonesRol.forEach(boton => {
     //     boton.addEventListener('click',function(){
     //         console.log(boton)
@@ -184,16 +184,16 @@ const cuerpoTabla = tabla.getElementById('#table-body')
     // });
 
 
-    function asignarRol(boton){
-        array = localStorage.getItem('usuarios')
-        usuariosArray = JSON.parse(array)
-        console.log(boton.value)
-       console.log(usuariosArray[boton.value])
-        usuariosArray[boton.value].rolActual = usuariosArray[boton.value].rolSolicitado;
-        usuariosArray[boton.value].tieneRol = true;
-        localStorage.setItem('competidores', JSON.stringify(usuariosArray))
-        tablaUsuarios(usuariosArray)
-    }
+    // function asignarRol(boton){
+    //     array = localStorage.getItem('usuarios')
+    //     usuariosArray = JSON.parse(array)
+    //     console.log(boton.value)
+    //    console.log(usuariosArray[boton.value])
+    //     usuariosArray[boton.value].rolActual = usuariosArray[boton.value].rolSolicitado;
+    //     usuariosArray[boton.value].tieneRol = true;
+    //     localStorage.setItem('competidores', JSON.stringify(usuariosArray))
+    //     tablaUsuarios(usuariosArray)
+    // }
 
 
 function tablaUsuarios(usuarios){

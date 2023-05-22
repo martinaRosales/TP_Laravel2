@@ -50,8 +50,14 @@
             @auth
             <!-- obtengo el objeto autenticación, que luego pasa a obtener el objeto de usuario
                 y accedo a la propiedad que contiene el nombre del usuario logueado -->
-            <h2>Usuario: {{ auth()->user()['usuario'] }}</h2>
-            <button class="btn"><a href="/logout">Logout</a></button>
+            <div class="userInfo">
+            <div class="title">
+            <p id="usuarioTitle">Usuario: {{ auth()->user()['usuario'] }}</p>
+            </div>
+            <div class="action">
+            <button id="logout" class="btn"><a href="/logout">Logout</a></button>
+            </div>
+            </div>
             @endauth
 
             <!-- Acá va el contenido que se quiera mostrar cuando no haya una sesión iniciada -->
@@ -77,9 +83,9 @@
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="{{route('competidores.index')}}" name="tabla">Competidores inscriptos</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link buttonNav" href="{{route('asignarRoles')}}" name="asignarRoles">Asignar roles</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link buttonNav" href="{{route('resultados')}}" name="resultados">Resultados</a>
                     </li>

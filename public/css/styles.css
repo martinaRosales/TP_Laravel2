@@ -34,3 +34,31 @@ ul{
 a{
     text-decoration: none;
 }
+
+#usuarioTitle{
+    color: white;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+
+.action{
+    display: flex;
+    justify-content: center;
+}
+.userInfo{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: end;
+}
+
+#logout{
+    border: 1px solid white;
+    border-radius: 3px;
+}
