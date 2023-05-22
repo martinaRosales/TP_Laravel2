@@ -54,7 +54,7 @@ class UsuarioController extends Controller
 
     // Metodos personalizados.
     public function imprimirDatos(){
-        $usuarios = Usuarios::all();
+        $usuarios = Usuario::all();
         return $usuarios;
     }
 }

@@ -31,7 +31,8 @@ Route::view('/asignarRoles', 'asignarRoles')->name('asignarRoles');
 Route::view('/resultados','resultados')->name('resultados');
 
 //obtención de datos de la bd
-Route::view('/obtenerDatos', 'acciones.obtenerCompetidores');
+Route::view('/obtenerCompetidores', 'acciones.obtenerCompetidores');
+// Route::view('/obtenerUsuarios'. 'acciones.obtenerUsuarios');
 
 
 // Competidores

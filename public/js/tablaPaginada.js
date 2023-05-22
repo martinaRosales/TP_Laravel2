@@ -17,10 +17,10 @@ botonSelect.addEventListener('click', () => {
 });
 
 
-/* function generarArrayCompetidores() {
+ function generarArrayCompetidores() {
     var competidoresObtenidos;
     $.ajax({
-      url: 'http://localhost:8000/obtenerDatos',
+      url: 'http://localhost:8000/obtenerCompetidores',
       dataType: 'json',
       async: false, // Hacer la solicitud AJAX de manera síncrona
       success: function (response) {
@@ -29,7 +29,7 @@ botonSelect.addEventListener('click', () => {
       }
     });
     return competidoresObtenidos;
-  } */
+  } 
   
 
 function tablaCompetidores(competidores) {

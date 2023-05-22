@@ -134,16 +134,31 @@ usuarios[10] =
 
 
 window.addEventListener('load', function () {
-
-    var usuariosArray = new Array();
-    usuarios.forEach(usuario => {
+    const usuariosArray = generarArrayUsuarios()
+    var usuariosFiltrados = new Array();
+    usuariosArray.forEach(usuario => {
         if(!usuario.tieneRol){
-            usuariosArray.push(usuario)
+            usuariosfiltrados.push(usuario)
         }
     });
-    this.localStorage.setItem('usuarios',JSON.stringify( usuariosArray))
-    tablaUsuarios(usuariosArray)
+S
+    tablaUsuarios(usuariosFiltrados)
 })
+
+function generarArrayUsuarios() {
+    var usuariosObtenidos;
+    $.ajax({
+      url: 'http://localhost:8000/obtenerUsuarios',
+      dataType: 'json',
+      async: false, // Hacer la solicitud AJAX de manera síncrona
+      success: function (response) {
+        console.log(response)
+        usuariosObtenidos = response;
+      }
+    });
+    return usuariosObtenidos;
+  } 
+  
 
 function actualizarTabla(){
     console.log('actualizar tabla')
