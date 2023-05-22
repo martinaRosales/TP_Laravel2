@@ -3,6 +3,7 @@ let usuarios = new Array();
 
 usuarios[0] =
 {
+    id:0,
     username: 'asdasd',
     nombre: 'aaaaa',
     apellido: 'aaaaaa',
@@ -13,6 +14,7 @@ usuarios[0] =
 }
 usuarios[1] =
 {
+    id:1,
     username: 'bbbbb',
     nombre: 'bbbbb',
     apellido: 'bbbbb',
@@ -24,6 +26,7 @@ usuarios[1] =
 
 usuarios[2] =
 {
+    id:2,
     username: 'cccccc',
     nombre: 'ccccccc',
     apellido: 'ccccc',
@@ -35,6 +38,7 @@ usuarios[2] =
 
 usuarios[3] =
 {
+    id:3,
     username: 'ddddddd',
     nombre: 'dddddd',
     apellido: 'ddddd',
@@ -46,6 +50,7 @@ usuarios[3] =
 
 usuarios[4] =
 {
+    id:4,
     username: 'eeeee',
     nombre: 'eeeee',
     apellido: 'eeeee',
@@ -57,6 +62,7 @@ usuarios[4] =
 
 usuarios[5] =
 {
+    id:5,
     username: 'ffffff',
     nombre: 'ffffff',
     apellido: 'ffffff',
@@ -68,6 +74,7 @@ usuarios[5] =
 
 usuarios[6] =
 {
+    id:6,
     username: 'gggggg',
     nombre: 'ggggg',
     apellido: 'gggggg',
@@ -79,6 +86,7 @@ usuarios[6] =
 
 usuarios[7] =
 {
+    id:7,
     username: 'hhhhhh',
     nombre: 'hhhhhh',
     apellido: 'hhhhhh',
@@ -90,6 +98,7 @@ usuarios[7] =
 
 usuarios[8] =
 {
+    id:8,
     username: 'iiiiii',
     nombre: 'iiiiii',
     apellido: 'iiiii',
@@ -101,6 +110,7 @@ usuarios[8] =
 
 usuarios[9] =
 {
+    id:9,
     username: 'jjjjjj',
     nombre: 'jjjjjj',
     apellido: 'jjjjjj',
@@ -112,6 +122,7 @@ usuarios[9] =
 
 usuarios[10] =
 {
+    id:10,
     username: 'kkkkkkk',
     nombre: 'kkkkkk',
     apellido: 'kkkkkk',
@@ -124,35 +135,61 @@ usuarios[10] =
 
 window.addEventListener('load', function () {
 
-    let usuariosArray = new Array();
+    var usuariosArray = new Array();
     usuarios.forEach(usuario => {
         if(!usuario.tieneRol){
             usuariosArray.push(usuario)
         }
     });
+    this.localStorage.setItem('usuarios',JSON.stringify( usuariosArray))
     tablaUsuarios(usuariosArray)
-    console.log(tabla)
 })
 
-const tabla = document.querySelectorAll('.tabla-usuarios');
-
-
-    botonesRol.forEach(boton => {
-        boton.addEventListener('click',function(){
-            console.log(boton)
-        })
+function actualizarTabla(){
+    console.log('actualizar tabla')
+    let usuariosActualizados = new Array();
+    array = localStorage.getItem('usuarios')
+    usuariosArray = JSON.parse(array)
+    console.log(usuariosArray)
+    usuariosArray.forEach(usuario => {
+        if(!usuario.tieneRol){
+            usuariosActualizados.push(usuario)
+        }
     });
-
-function asignarRol(){
-    // usuario = usuariosArray[index]
-    usuario.rolActual = rolSolicitado;
-    usuario.tieneRol = true;
+    tablaUsuarios(usuariosActualizados)
 }
+
+const tabla = document.querySelectorAll('#tabla-usuarios');
+
+const cuerpoTabla = tabla.getElementById('#table-body')
+    // botonesRol.forEach(boton => {
+    //     boton.addEventListener('click',function(){
+    //         console.log(boton)
+    //     })
+    // });
+
+
+    function asignarRol(boton){
+        array = localStorage.getItem('usuarios')
+        usuariosArray = JSON.parse(array)
+        console.log(boton.value)
+       console.log(usuariosArray[boton.value])
+        usuariosArray[boton.value].rolActual = usuariosArray[boton.value].rolSolicitado;
+        usuariosArray[boton.value].tieneRol = true;
+        localStorage.setItem('competidores', JSON.stringify(usuariosArray))
+        tablaUsuarios(usuariosArray)
+    }
 
 
 function tablaUsuarios(usuarios){
+    usuariosArray = new Array ();
+    usuarios.forEach(usuario =>{
+        if (!usuario.tieneRol){
+            usuariosArray.push(usuario)
+        }
+    })
     $('#tabla-usuarios').pagination({
-      dataSource: usuarios,
+      dataSource: usuariosArray,
       pageSize: 5,
       showSizeChanger: true,
       callback: function(data, pagination) {
@@ -162,10 +199,10 @@ function tablaUsuarios(usuarios){
           let row = "<tr class='table-row'>"+
           "<td class='table-column'>"+usuario.username+"</td>"+
           "<td class='table-column'>"+usuario.nombre+"</td>"+
-          "<td class='table-column'>"+ usuario.apellido+"</td>"+
-          "<td class='table-column'>"+ usuario.email+"</td>"+
+          "<td class='table-column'>"+usuario.apellido+"</td>"+
+          "<td class='table-column'>"+usuario.email+"</td>"+
           "<td class='table-column'>"+usuario.rolSolicitado+"</td>"+
-          "<td class='table-column'><button type='button' class='btn btn-primary asignarRol'>Conceder rol</button></td>"
+          "<td class='table-column'><button type='button' class='btn btn-primary asignarRol' id='"+usuario.id+"' value='"+usuario.id+"' onclick='asignarRol(this)' >Conceder rol</button></td>"
           +"</tr>";
           arrayRows.push(row);
         })
@@ -173,6 +210,8 @@ function tablaUsuarios(usuarios){
         table.innerHTML = arrayRows
       }
     })
-    
+
+
+
   }
   
