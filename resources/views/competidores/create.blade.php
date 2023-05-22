@@ -3,17 +3,19 @@
 @section('title', 'Cargar competidor')
 
 @section('contenido')
-  <h1>Inscribir Competidor</h1>
-  <form id="formulario" action="{{ route('competidores.store') }}" method="POST">
+  <form id="formulario" action="{{ route('registrar') }}" method="POST" class="m-2 p-2 border">
+    <h1 class="m-2 p-2">Inscribir Competidor</h1>
   @csrf
-  @include('layout.partials.mensajes')
-  <div class="formulario active">
+
+    <!-- Nombre competidor -->
     <div class="row mb-3">
       <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" id="nombre" name="nombre" />
       </div>
     </div>
+
+    <!-- Apellido Competidor -->
     <div class="row mb-3">
       <label for="apellido" class="col-sm-4 col-form-label">Apellido</label>
       <div class="col-sm-8">
@@ -21,20 +23,23 @@
       </div>
     </div>
 
+    <!-- DNI  -->
     <div class="row mb-3">
       <label for="du" class="col-sm-4 col-form-label">DU</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" id="du" name="du" />
       </div>
     </div>
+
+    <!-- Nacimiento -->
     <div class="row mb-3">
       <label for="fecha-nacimiento" class="col-sm-4 col-form-label">Fecha de nacimiento</label>
       <div class="col-sm-8">
         <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" min="1960-01-01" />
       </div>
     </div>
-  </div>
-  <div class="formulario">
+
+    <!-- Pais -->
     <div class="row mb-3">
       <label for="pais" class="col-sm-4 col-form-label">País de origen</label>
       <div class="col-sm-8">
@@ -42,12 +47,16 @@
         <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
       </div>
     </div>
+
+    <!-- Email -->
     <div class="row mb-3">
       <label for="email" class="col-sm-4 col-form-label">Email de contacto</label>
       <div class="col-sm-8">
         <input type="email" class="form-control" id="email" name="email" />
       </div>
     </div>
+
+    <!-- Genero -->
     <div class="row mb-3">
       <label for="genero" class="col-sm-4 col-form-label">Género</label>
       <div class="col-sm-8">
@@ -65,16 +74,16 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="formulario">
+
+    <!-- Gal: Primary Key -->
     <div class="row mb-3">
       <label for="gal" class="col-sm-4 col-form-label">GAL</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" id="gal" name="gal" placeholder="Ej: ABC1234567" />
-        <!-- <span id="gal-error" style="display: none">El GAL debe tener 9 caracteres, los primeros 3 letras y los
-                restantes números (Ej: ABC1234567)</span> -->
       </div>
     </div>
+
+    <!-- Graduacion -->
     <div class="row mb-3">
       <label for="graduacion" class="col-sm-4 col-form-label">Graduación</label>
       <div class="col-sm-8">
@@ -102,19 +111,32 @@
         </select>
       </div>
     </div>
+
+    <!-- Clasificacion en el ranking -->
     <div class="row mb-3">
       <label for="clasificacion" class="col-sm-4 col-form-label">Clasificación general del ranking nacional</label>
       <div class="col-sm-8">
         <input type="text" class="form-control" id="clasificacion" name="clasificacion" placeholder="Ingrese su posición en el ranking nacional" pattern="^\S+$" required />
       </div>
     </div>
-  </div>
-   <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
+
+  <!-- Envio Form -->
   <input type="submit" value="Registrar" class="btn btn-success">
 </form>
+
+<!-- Mensajes de Error de js-->
 <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
+<!-- Mensajes de error de la BD -->
+@include('layout.partials.mensajes')
+
+/*Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+) */
 
 @endsection
 
 <script src="../js/validarForm2.js" type="module"></script>
+
