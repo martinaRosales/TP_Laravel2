@@ -13,7 +13,13 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::get();
-        return view('categorias.index', ['categorias' => $categorias]);
+        return view('resultados', ['categorias' => $categorias]);
+    }
+
+    public function listar()
+    {
+        $categorias = Categoria::all();
+        return $categorias;
     }
 
     /**

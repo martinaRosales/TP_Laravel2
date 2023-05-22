@@ -15,6 +15,7 @@ import './menu.js'
 import './timer2.js'
 import './validarRegistroUsuario.js'
 import './tablaUsuarios.js'
+import './carrusel.js'
 
 function visualizarComp() {
   let genero = '';
@@ -266,6 +267,8 @@ $("#selectFilter").on("change", function (e) {
     element.classList.remove("d-none");
   });
 });
+
+
 
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\RegistroUsuarioControlador;
 use App\Http\Controllers\LoginControlador;
 use App\Models\Rol;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,12 +46,15 @@ Route::delete('/competidores/{competidor}', [CompetidorController::class, 'destr
 
 // Categorias
 Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index'); // Mostramos la vista de la tabla de todas los categorias.
+Route::get('/resultados_', [CategoriaController::class, 'listar'])->name('datosCategoriasJson'); // Mostramos la vista de la tabla de todas los categorias.
 Route::get('/categorias/crear', [CategoriaController::class, 'create'])->name('categorias.create'); // Mostramos la vista del formulario para cargar una categoria.
 Route::post('/categorias', [CategoriaController::class, 'store'])->name('categorias.store'); // Guardamos la categoria en la bd.
 Route::get('/categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show'); // Mostramos la vista de los datos de una categoria especifica.
 Route::get('/categorias/{categoria}/editar', [CategoriaController::class, 'edit'])->name('categorias.edit'); // Mostramos la vista del formulario para editar una categoria.
 Route::patch('/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update'); // Actualizamos la categoria en la bd.
 Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy'); // Eliminamos una categoria de la bd.
+
+/* Route::view('/resultados_', 'categorias.index'); */
 
 
 // Support folder

@@ -7,8 +7,21 @@ Resultados
 @section('contenido')
 
 <section class="carrusel">
-    <div class="w-100 bg-success my-5" style="height: 200px;">
+    <div class="my-5">
+        <div id="carouselExampleControls" class="carousel slide w-100 h-100" data-bs-ride="carousel">
+            <div class="carousel-inner" id="contenedorCarrusel">
+                
+            </div>
 
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
 </section>
 <section class="ganador">
@@ -19,7 +32,7 @@ Resultados
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-12 col-lg-4">
-                            <img src="https://www.clker.com/cliparts/T/d/j/M/D/A/silueta-negra-hi.png" class="img-fluid w-100" alt="card-horizontal-image">
+                            <img src="https://www.clker.com/cliparts/T/d/j/M/D/A/silueta-negra-hi.png" class="img-fluid " alt="card-horizontal-image">
                         </div>
                         <div class="col-12 col-lg-8">
                             <div class="float-end">
@@ -138,5 +151,7 @@ Resultados
         </div>
     </div>
 </section>
+
+<script src="{{ asset('js/carrusel.js') }}" type="module"></script>
 
 @endsection
