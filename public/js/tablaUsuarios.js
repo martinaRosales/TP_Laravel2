@@ -134,16 +134,31 @@ usuarios[10] =
 
 
 window.addEventListener('load', function () {
-
-    var usuariosArray = new Array();
-    usuarios.forEach(usuario => {
+    const usuariosArray = generarArrayUsuarios()
+    var usuariosFiltrados = new Array();
+    usuariosArray.forEach(usuario => {
         if(!usuario.tieneRol){
-            usuariosArray.push(usuario)
+            usuariosfiltrados.push(usuario)
         }
     });
-    this.localStorage.setItem('usuarios',JSON.stringify( usuariosArray))
-    tablaUsuarios(usuariosArray)
+S
+    tablaUsuarios(usuariosFiltrados)
 })
+
+function generarArrayUsuarios() {
+    var usuariosObtenidos;
+    $.ajax({
+      url: 'http://localhost:8000/obtenerUsuarios',
+      dataType: 'json',
+      async: false, // Hacer la solicitud AJAX de manera síncrona
+      success: function (response) {
+        console.log(response)
+        usuariosObtenidos = response;
+      }
+    });
+    return usuariosObtenidos;
+  } 
+  
 
 function actualizarTabla(){
     console.log('actualizar tabla')
@@ -161,7 +176,7 @@ function actualizarTabla(){
 
 const tabla = document.querySelectorAll('#tabla-usuarios');
 
-const cuerpoTabla = tabla.getElementById('#table-body')
+// const cuerpoTabla = tabla.getElementById('#table-body')
     // botonesRol.forEach(boton => {
     //     boton.addEventListener('click',function(){
     //         console.log(boton)
@@ -169,16 +184,16 @@ const cuerpoTabla = tabla.getElementById('#table-body')
     // });
 
 
-    function asignarRol(boton){
-        array = localStorage.getItem('usuarios')
-        usuariosArray = JSON.parse(array)
-        console.log(boton.value)
-       console.log(usuariosArray[boton.value])
-        usuariosArray[boton.value].rolActual = usuariosArray[boton.value].rolSolicitado;
-        usuariosArray[boton.value].tieneRol = true;
-        localStorage.setItem('competidores', JSON.stringify(usuariosArray))
-        tablaUsuarios(usuariosArray)
-    }
+    // function asignarRol(boton){
+    //     array = localStorage.getItem('usuarios')
+    //     usuariosArray = JSON.parse(array)
+    //     console.log(boton.value)
+    //    console.log(usuariosArray[boton.value])
+    //     usuariosArray[boton.value].rolActual = usuariosArray[boton.value].rolSolicitado;
+    //     usuariosArray[boton.value].tieneRol = true;
+    //     localStorage.setItem('competidores', JSON.stringify(usuariosArray))
+    //     tablaUsuarios(usuariosArray)
+    // }
 
 
 function tablaUsuarios(usuarios){

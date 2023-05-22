@@ -33,11 +33,20 @@ const inputApellido = document.querySelector('#apellido')
 const inputEmail = document.querySelector('#email')
 const inputContrasenia = document.querySelector('#contrasenia')
 const inputContraseniaConfirmada = document.querySelector('#repiteContrasenia')
-const inputFeedback = document.querySelector('.input-feedback')
 const botonSubmit = document.querySelector('#botonSubmit')
 const checkRolCompetidor = document.querySelector('#competidor')
 const checkRolJuez = document.querySelector('#juez')
 const divChecks = document.querySelector('#checks');
+
+
+//acá recupero todos los divs donde irán los mensajes de feedback
+const usuarioFeedback = document.querySelector('#usuarioFeedback')
+const nombreFeedback = document.querySelector('#nombreFeedback')
+const apellidoFeedback = document.querySelector('#apellidoFeedback')
+const emailFeedback = document.querySelector('#emailFeedback')
+const contraseniaFeedback = document.querySelector('#contraseniaFeedback')
+const contraseniaConfirmadaFeedback = document.querySelector('#repiteContraseniaFeedback')
+const checksFeedback = document.querySelector('#checksFeedback')
 
 let usuarioValido = false;
 let nombreValido = false;
@@ -49,7 +58,6 @@ let contraseniasValidas = false;
 //esto está para los console log, no es importante
 formulario.addEventListener('click', function () {
   formularioValido = validarFormulario()
-  console.log(formularioValido)
   if (!formularioValido) {
     botonSubmit.disabled = true;
   } else {
@@ -62,12 +70,27 @@ formulario.addEventListener('click', function () {
 //los blur no me los saquen, que son los que hacen que se verifique en seguida si es válido el campo
 inputUsuario.addEventListener('blur', function () {
   usuarioValido = validarCampo(inputUsuario)
+  if (!usuarioValido){
+    usuarioFeedback.style.color = 'red'
+    usuarioFeedback.innerHTML = 'Complete este campo'
+  } else {
+    usuarioFeedback.innerHTML = ' &nbsp;'
+  }
 })
 
 inputNombre.addEventListener('blur', function () {
   campoCompleto = validarCampo(inputNombre)
   if (campoCompleto) {
     nombreValido = validarString(inputNombre)
+    if (nombreValido){
+      nombreFeedback.innerHTML = ' &nbsp;'
+    } else {
+      nombreFeedback.style.color = 'red'
+      nombreFeedback.innerHTML = 'Ha ingresado números y/o demasiados caracteres'
+    }
+  } else {
+    nombreFeedback.style.color = 'red'
+    nombreFeedback.innerHTML = 'Complete este campo'
   }
 })
 
@@ -75,6 +98,15 @@ inputApellido.addEventListener('blur', function () {
   campoCompleto = validarCampo(inputApellido)
   if (campoCompleto) {
     apellidoValido = validarString(inputApellido)
+    if (apellidoValido){
+      apellidoFeedback.innerHTML = ' &nbsp;'
+    } else {
+      apellidoFeedback.style.color = 'red'
+      apellidoFeedback.innerHTML = 'Ha ingresado números y/o demasiados caracteres'
+    }
+  } else {
+    apellidoFeedback.style.color = 'red'
+    apellidoFeedback.innerHTML = 'Complete este campo'
   }
 })
 
@@ -82,6 +114,15 @@ inputEmail.addEventListener('blur', function () {
   campoCompleto = validarCampo(inputEmail)
   if (campoCompleto) {
     emailValido = validarEmail(inputEmail)
+    if (emailValido){
+      emailFeedback.innerHTML = ' &nbsp;'
+    } else {
+      emailFeedback.style.color = 'red'
+      emailFeedback.innerHTML = 'El email ingresado no es válido'
+    }
+  } else {
+    emailFeedback.style.color = 'red'
+    emailFeedback.innerHTML = 'Complete este campo'
   }
 })
 
@@ -90,8 +131,21 @@ inputContrasenia.addEventListener('blur', function () {
   if (campoCompleto) {
     if (validarLongitud(inputContrasenia, 'contrasenia')) {
       //esto validarlo cuando se envíe el formulario
-      contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
+      contraseniasValidas = contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
+      if (contraseniasValidas){
+        contraseniaFeedback.innerHTML = ' &nbsp;'
+        contraseniaConfirmadaFeedback.innerHTML = ' &nbsp;'
+      } else {
+        contraseniaFeedback.style.color = 'red'
+        contraseniaFeedback.innerHTML = 'Las contraseñas no son iguales'
+      }
+    } else {
+      contraseniaFeedback.style.color = 'red'
+      contraseniaFeedback.innerHTML = 'La contraseña debe tener un mínimo de 8 caracteres'
     }
+  } else {
+    contraseniaFeedback.style.color = 'red'
+    contraseniaFeedback.innerHTML = 'Complete este campo'
   }
 })
 
@@ -99,34 +153,33 @@ inputContraseniaConfirmada.addEventListener('blur', function () {
   campoCompleto = validarCampo(inputContraseniaConfirmada)
   if (campoCompleto) {
     if (validarLongitud(inputContraseniaConfirmada, 'contrasenia')) {
-      contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
+      contraseniasValidas = contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
+      if (contraseniasValidas){
+        contraseniaFeedback.innerHTML = ' &nbsp;'
+        contraseniaConfirmadaFeedback.innerHTML = ' &nbsp;'
+      } else {
+        contraseniaConfirmadaFeedback.style.color = 'red'
+        contraseniaConfirmadaFeedback.innerHTML = 'Las contraseñas no son iguales'
+      }
+    } else {
+      contraseniaConfirmadaFeedback.style.color = 'red'
+      contraseniaConfirmadaFeedback.innerHTML = 'La contraseña debe tener un mínimo de 8 caracteres'
     }
+  } else {
+    contraseniaConfirmadaFeedback.style.color = 'red'
+    contraseniaConfirmadaFeedback.innerHTML = 'Complete este campo'
   }
 })
 
 divChecks.addEventListener('click', function () {
-  validarChecks(checkRolCompetidor, checkRolJuez)
+  checksValidos=validarChecks(checkRolCompetidor, checkRolJuez)
+  if(checksValidos){
+    checksFeedback.innerHTML = ' &nbsp;'
+  } else {
+    checksFeedback.style.color = 'red'
+    checksFeedback.innerHTML = 'Seleccione una opción'
+  }
 })
-
-// //acá intenté que no se envien los datos del formulario si no son válidos todos los campos... no salió D:
-// formulario.addEventListener('click', function (event) {
-
-//   event.preventDefault()
-
-//   console.log('funca el submit event')
-//   formularioValido = validarFormulario()
-//   if (formularioValido) {
-//     formulario.submit()
-//   }
-// }, true)
-
-// botonSubmit.addEventListener('submit', function (event) {
-//   if (validarFormulario()){
-//     event.stopPropagation()
-//     event.preventDefault()
-//   }
-
-// })
 
 function validarFormulario() {
   formularioValido = false;
@@ -138,12 +191,15 @@ function validarFormulario() {
         console.log('3 apellido es valido')
         if (emailValido) {
           console.log('4 email es valido')
-          contraseniasValidas = contraseniasIguales(inputContrasenia, inputContraseniaConfirmada)
           if (contraseniasValidas) {
             console.log('5 contrasenias son validas')
-            if (validarChecks(checkRolCompetidor, checkRolJuez)) {
-              console.log('6 checks son validos')
-              formularioValido = true
+            checksValidos=validarChecks(checkRolCompetidor, checkRolJuez)
+            if(checksValidos){
+              checksFeedback.innerHTML = ' &nbsp;'
+              formularioValido = true;
+            } else {
+              checksFeedback.style.color = 'red'
+              checksFeedback.innerHTML = 'Seleccione una opción'
             }
           }
         }
@@ -151,6 +207,18 @@ function validarFormulario() {
     }
   }
   return formularioValido
+}
+
+//funcion que comprueba que el campo no esté vacío
+function validarCampo(input) {
+  if (input.value === "") {
+    input.style.borderColor = 'red';
+    input.innerHTML = 'Complete este campo'
+    return false;
+  } else {
+    input.style.borderColor = 'green';
+    return true
+  }
 }
 
 function validarChecks(checkRolCompetidor, checkRolJuez) {
@@ -162,18 +230,6 @@ function validarChecks(checkRolCompetidor, checkRolJuez) {
   }
   return checkValidado;
 }
-
-//funcion que comprueba que el campo no esté vacío
-function validarCampo(input) {
-  if (input.value === "") {
-    input.style.borderColor = 'red';
-    return false;
-  } else {
-    input.style.borderColor = 'green';
-    return true
-  }
-}
-
 
 function validarLongitud(input, type) {
   longitudValidada = false
@@ -199,18 +255,21 @@ function validarLongitud(input, type) {
 }
 
 function contraseniasIguales(contrasenia, contraseniaRepetida) {
-  if (validarCampo(contrasenia) && validarCampo(contraseniaRepetida)) {
+  // if (validarCampo(contrasenia) && validarCampo(contraseniaRepetida)) {
     if (contrasenia.value === contraseniaRepetida.value) {
+      console.log('entra al if')
       contrasenia.style.borderColor = "green";
       contraseniaRepetida.style.borderColor = "green";
       return true
     } else {
+      console.log('entra al else')
       contrasenia.style.borderColor = "red";
       contraseniaRepetida.style.borderColor = "red";
+      return false
     }
-  } else {
-    return false
-  }
+  // } else {
+
+  // }
 }
 
 
