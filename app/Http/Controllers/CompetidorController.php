@@ -33,7 +33,7 @@ class CompetidorController extends Controller
 
         if( $userRol == 'Competidor' ){
             return view('competidores.create');
-        } elseif( $userRol == null ){
+        } else{
             return redirect('/')->withErrors('Debe ser un competidor para ingresar.');
         }
 

@@ -6,6 +6,7 @@ Home
 
 @section('contenido')
 <!-- Fila del video presentacion -->
+@role('competidor')
 <div class="row justify-content-center">
    <h3 class="text-center">Video</h3>
     <div class="d-flex justify-content-center my-2">
@@ -15,6 +16,7 @@ Home
         <iframe width="90%" height="610" src="https://www.youtube.com/embed/IBtz0mmUpc4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="d-none d-md-block"></iframe>
     </div>
 </div>
+@endrole
 <!-- Fila del secciones Invitacion - Flyer -->
 <div class="row mt-5 justify-content-evenly">
   <!-- Columna contenedora de la seccion Invitacion-->
