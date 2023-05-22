@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginControlador;
 use App\Models\Rol;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\JuezControlador;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,6 @@ use App\Http\Controllers\CategoriaController;
 Route::view('/', 'home')->name('home'); 
 Route::view('/video','video')->name('video');
 Route::view('/bancoImagenes', 'imgBank')->name('imagenes');
-Route::view('/timer', 'timer')->name('timer');
 Route::view('/asignarRoles', 'asignarRoles')->name('asignarRoles');
 Route::view('/resultados','resultados')->name('resultados');
 
@@ -44,6 +44,9 @@ Route::get('/competidores/{competidor}/editar', [CompetidorController::class, 'e
  // Utilizamos method PATCH al actualizar elementos de la bd y DELETE para elimiar.
 Route::patch('/competidores/{competidor}', [CompetidorController::class, 'update'])->name('competidores.update'); // Actualizamos el competidor en la bd.
 Route::delete('/competidores/{competidor}', [CompetidorController::class, 'destroy'])->name('competidores.destroy'); // Eliminamos competidor de la bd.
+
+// Juez
+Route::get('/reloj', [JuezControlador::class, 'create'])->name('reloj'); // Mostramos la vista del reloj que solo podrá ver el juez
 
 // Categorias
 Route::get('/categorias', [CategoriaController::class, 'index'])->name('categorias.index'); // Mostramos la vista de la tabla de todas los categorias.
@@ -80,17 +83,6 @@ Route::post( '/registro', [RegistroUsuarioControlador::class, 'registro'] );
 Route::get( '/logout', [LoginControlador::class, 'logout'])->name( 'logout' );
 
 
-/**
- * Rutas por rol en específico
- * rol:1 = admin
- * rol:2 = juez
- * rol:3 = competidor
- */
-Route::middleware('rol:1')->group(function () {
-  // Rutas que requieren el rol admin
-  Route::get('/compInscriptos', 'AdminControlador@compInscriptos' )->name( 'compInscriptos' );
-  Route::get('/reloj', 'AdminControlador@reloj')->name( 'reloj' );
-});
 
 
 Route::get('/materia',function(){
