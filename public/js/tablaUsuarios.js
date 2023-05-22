@@ -153,7 +153,7 @@ function tablaUsuarios(usuarios){
           "<td class='table-column'>"+ usuario.apellido+"</td>"+
           "<td class='table-column'>"+ usuario.email+"</td>"+
           "<td class='table-column'>"+usuario.rolSolicitado+"</td>"+
-          "<td class='table-column'><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'> Asignar rol </button></td>"
+          "<td class='table-column'><button type='button' class='btn btn-primary'> Asignar rol </button></td>"
           +"</tr>";
           arrayRows.push(row);
         })
