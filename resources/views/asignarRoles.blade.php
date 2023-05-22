@@ -12,7 +12,7 @@
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Email</th>
-                        <th>Solicitud</th>
+                        <th>Solicitud de rol</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

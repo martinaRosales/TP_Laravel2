@@ -123,6 +123,7 @@ usuarios[10] =
 
 
 window.addEventListener('load', function () {
+
     let usuariosArray = new Array();
     usuarios.forEach(usuario => {
         if(!usuario.tieneRol){
@@ -130,13 +131,24 @@ window.addEventListener('load', function () {
         }
     });
     tablaUsuarios(usuariosArray)
+    console.log(tabla)
 })
 
-const botonJuez = document.querySelector('#rolJuez');
+const tabla = document.querySelectorAll('.tabla-usuarios');
 
-botonJuez.addEventListener('click', function(){
-    
-})
+
+    botonesRol.forEach(boton => {
+        boton.addEventListener('click',function(){
+            console.log(boton)
+        })
+    });
+
+function asignarRol(){
+    // usuario = usuariosArray[index]
+    usuario.rolActual = rolSolicitado;
+    usuario.tieneRol = true;
+}
+
 
 function tablaUsuarios(usuarios){
     $('#tabla-usuarios').pagination({
@@ -153,7 +165,7 @@ function tablaUsuarios(usuarios){
           "<td class='table-column'>"+ usuario.apellido+"</td>"+
           "<td class='table-column'>"+ usuario.email+"</td>"+
           "<td class='table-column'>"+usuario.rolSolicitado+"</td>"+
-          "<td class='table-column'><button type='button' class='btn btn-primary'> Asignar rol </button></td>"
+          "<td class='table-column'><button type='button' class='btn btn-primary asignarRol'>Conceder rol</button></td>"
           +"</tr>";
           arrayRows.push(row);
         })
