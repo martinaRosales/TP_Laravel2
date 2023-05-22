@@ -23,6 +23,7 @@ class Competidor extends Model
         'pais_nombre',
         'email',
         'genero',
+        'graduacion',
         'clasificacion',
     ];
 

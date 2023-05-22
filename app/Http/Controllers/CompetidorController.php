@@ -65,10 +65,11 @@ class CompetidorController extends Controller
             'pais_nombre' => $request->get('pais'),
             'email' => $request->get('email'),
             'genero' => $request->get('genero'),
+            'graduacion' => $request->get('graduacion'),
             'clasificacion' => $request->get('clasificacion'),
         ]);
 
-       return to_route('index')->with('success', 'El competidor se creo correctamente');
+       return to_route('competidores.index')->with('success', 'El competidor se creo correctamente');
     }
 
     // Mostramos el formulario de edicion.
