@@ -3,8 +3,8 @@
 @section('title', 'Cargar competidor')
 
 @section('contenido')
-  <h1>Inscribir Competidor</h1>
-  <form id="formulario" action="{{ route('competidores.store') }}" method="POST">
+<h1>Inscribir Competidor</h1>
+<form id="formulario" action="{{ route('competidores.store') }}" method="POST">
   @csrf
   @include('layout.partials.mensajes')
   <div class="formulario active">
@@ -109,11 +109,10 @@
       </div>
     </div>
   </div>
-   <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
+  <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
   <input type="submit" value="Registrar" class="btn btn-success">
 </form>
 <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
-
 
 @endsection
 

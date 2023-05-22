@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Competidor;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Pais;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -24,20 +25,38 @@ class CompetidorController extends Controller
     }
 
     // Mostramos la vista del formulario con create.
-    public function create() {
+    public function create()
+    {
         if (isset(auth()->user()->rol)) {
             $userRol = auth()->user()->rol;
         } else {
             $userRol = null;
         }
 
-        if( $userRol == 'Competidor' ){
+        if ($userRol == 'Competidor') {
             return view('competidores.create');
-        } elseif( $userRol == null ){
+        } elseif ($userRol == null) {
             return redirect('/')->withErrors('Debe ser un competidor para ingresar.');
         }
 
         /*  */
+    }
+
+    /*
+   AJAX request
+   */
+    public function buscarPaises(Request $request)
+    {
+
+        $search = $request->search;
+
+        if ($search == '') {
+            $paises = Pais::orderBy('nombre', 'asc')->limit(5)->pluck('nombre');
+        } else {
+            $paises = Pais::orderBy('nombre', 'asc')->where('nombre', 'like', '%' . $search . '%')->limit(5)->pluck('nombre');
+        }
+    
+        return response()->json($paises);
     }
 
     // Guardamos el competidor del formulario en la bd.
@@ -69,7 +88,7 @@ class CompetidorController extends Controller
             'clasificacion' => $request->get('clasificacion'),
         ]);
 
-       return to_route('competidores.index')->with('success', 'El competidor se creo correctamente');
+        return to_route('competidores.index')->with('success', 'El competidor se creo correctamente');
     }
 
     // Mostramos el formulario de edicion.

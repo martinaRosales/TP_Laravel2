@@ -55,7 +55,7 @@ Route::patch('/categorias/{categoria}', [CategoriaController::class, 'update'])-
 Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy'); // Eliminamos una categoria de la bd.
 
 /* Route::view('/resultados_', 'categorias.index'); */
-
+Route::post('/competidores/crear',[CompetidorController::class, 'buscarPaises'])->name('competidores.buscarPaises');
 
 // Support folder
 Route::get( '/about', function() {
