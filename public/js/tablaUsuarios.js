@@ -3,149 +3,164 @@ let usuarios = new Array();
 
 usuarios[0] =
 {
-    usuario: 'asdasd',
+    username: 'asdasd',
     nombre: 'aaaaa',
     apellido: 'aaaaaa',
     email: 'aaaaa',
     rolSolicitado: 'juez',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 usuarios[1] =
 {
-    usuario: 'bbbbb',
+    username: 'bbbbb',
     nombre: 'bbbbb',
     apellido: 'bbbbb',
     email: 'bbbbb',
     rolSolicitado: 'competidor',
-    tieneRol: false,
-    rolObtenido: ''
+    tieneRol: true,
+    rolActual: 'usuario'
 }
 
 usuarios[2] =
 {
-    usuario: 'cccccc',
+    username: 'cccccc',
     nombre: 'ccccccc',
     apellido: 'ccccc',
     email: 'ccccccc',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[3] =
 {
-    usuario: 'ddddddd',
+    username: 'ddddddd',
     nombre: 'dddddd',
     apellido: 'ddddd',
     email: 'ddddd',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[4] =
 {
-    usuario: 'eeeee',
+    username: 'eeeee',
     nombre: 'eeeee',
     apellido: 'eeeee',
     email: 'eeee',
     rolSolicitado: 'juez',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[5] =
 {
-    usuario: 'ffffff',
+    username: 'ffffff',
     nombre: 'ffffff',
     apellido: 'ffffff',
     email: 'ffffff',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[6] =
 {
-    usuario: 'gggggg',
+    username: 'gggggg',
     nombre: 'ggggg',
     apellido: 'gggggg',
     email: 'gggggg',
     rolSolicitado: 'competidor',
-    tieneRol: false,
-    rolObtenido: ''
+    tieneRol: true,
+    rolActual: 'usuario'
 }
 
 usuarios[7] =
 {
-    usuario: 'hhhhhh',
+    username: 'hhhhhh',
     nombre: 'hhhhhh',
     apellido: 'hhhhhh',
     email: 'hhhhh',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[8] =
 {
-    usuario: 'iiiiii',
+    username: 'iiiiii',
     nombre: 'iiiiii',
     apellido: 'iiiii',
     email: 'iiii',
     rolSolicitado: 'juez',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[9] =
 {
-    usuario: 'jjjjjj',
+    username: 'jjjjjj',
     nombre: 'jjjjjj',
     apellido: 'jjjjjj',
     email: 'jjjjj',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[10] =
 {
-    usuario: 'kkkkkkk',
+    username: 'kkkkkkk',
     nombre: 'kkkkkk',
     apellido: 'kkkkkk',
     email: 'kkkkk',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
-window.addEventListener('load', function(){
-    tablaUsuarios(usuarios)
+
+window.addEventListener('load', function () {
+    let usuariosArray = new Array();
+    usuarios.forEach(usuario => {
+        if(!usuario.tieneRol){
+            usuariosArray.push(usuario)
+        }
+    });
+    tablaUsuarios(usuariosArray)
 })
 
+const botonJuez = document.querySelector('#rolJuez');
 
-const tabla = document.querySelector('#tabla-usuarios')
+botonJuez.addEventListener('click', function(){
+    
+})
 
-function tablaUsuarios(usuarios) {
-    $('#table-body').pagination({
+function tablaUsuarios(usuarios){
+    $('#tabla-usuarios').pagination({
       dataSource: usuarios,
       pageSize: 5,
-      callback: function(data) {
-        $('#table-body').empty();
-        $.each(data, function(index, usuario) {
-          var row = '<tr class="table-row">' +
-            '<td class="table-column">' + usuario.usuario + '</td>' +
-            '<td class="table-column">' + usuario.nombre + '</td>' +
-            '<td class="table-column">' + usuario.apellido + '</td>' +
-            '<td class="table-column">' + usuario.email + '</td>' +
-            '<td class="table-column">' + usuario.rolSolicitado + '</td>' +
-            '<td class="table-column">&nbsp;</td>' +
-            '</tr>';
-          $('#table-body').append(row);
-        });
+      showSizeChanger: true,
+      callback: function(data, pagination) {
+        $('#table-body').html("");
+        let arrayRows = [];
+        $.each(data, function(index, usuario){
+          let row = "<tr class='table-row'>"+
+          "<td class='table-column'>"+usuario.username+"</td>"+
+          "<td class='table-column'>"+usuario.nombre+"</td>"+
+          "<td class='table-column'>"+ usuario.apellido+"</td>"+
+          "<td class='table-column'>"+ usuario.email+"</td>"+
+          "<td class='table-column'>"+usuario.rolSolicitado+"</td>"+
+          "<td class='table-column'><button type='button' class='btn btn-primary'> Asignar rol </button></td>"
+          +"</tr>";
+          arrayRows.push(row);
+        })
+        let table = document.getElementById("table-body")
+        table.innerHTML = arrayRows
       }
-    });
+    })
+    
   }
-// export {tablaUsuarios}
+  

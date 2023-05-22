@@ -115,4 +115,10 @@ class CompetidorController extends Controller
         $competidor->delete();
         return to_route('competidores.index')->with('success', 'Competidor eliminado correctamente.');
     }
+
+    public function listar()
+    {
+        $competidores = Competidor::get();
+        return $competidores;
+    }
 }

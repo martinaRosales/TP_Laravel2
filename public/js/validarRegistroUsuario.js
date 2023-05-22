@@ -21,12 +21,12 @@
 
 
 //PARA RESOLVER:
-//1. Que el formulario no se envíe si no son válidos todos los campos (lo estoy intentando manejar con booleanos)
+//1. Que el formulario no se envíe si no son válidos todos los campos DESHABILITAR EL BOTON SUBMIT SI NO ESTAN VALIDOS TODOS LOS CAMPOS
 //2. Validar los input de las contraseñas, que estén completos y que sean iguales HECHO
 //3. Agregar mensajes breves y descriptivos sobre el error en el campo (si está incompleto o los datos no son válidos)
 
 //acá recupero todos los input del formulario
-const formulario = document.querySelectorAll('#formularioRegistro')
+const formulario = document.querySelector('#formularioRegistro')
 const inputUsuario = document.querySelector('#usuario')
 const inputNombre = document.querySelector('#nombre')
 const inputApellido = document.querySelector('#apellido')
@@ -34,10 +34,10 @@ const inputEmail = document.querySelector('#email')
 const inputContrasenia = document.querySelector('#contrasenia')
 const inputContraseniaConfirmada = document.querySelector('#repiteContrasenia')
 const inputFeedback = document.querySelector('.input-feedback')
-const botonSubmit = document.querySelector('.boton-submit')
+const botonSubmit = document.querySelector('#botonSubmit')
 const checkRolCompetidor = document.querySelector('#competidor')
 const checkRolJuez = document.querySelector('#juez')
-
+const divChecks = document.querySelector('#checks');
 
 let usuarioValido = false;
 let nombreValido = false;
@@ -47,7 +47,15 @@ let contraseniasValidas = false;
 // let formularioValido = false;
 
 //esto está para los console log, no es importante
-window.addEventListener('load', function () {
+formulario.addEventListener('click', function () {
+  formularioValido = validarFormulario()
+  console.log(formularioValido)
+  if (!formularioValido) {
+    botonSubmit.disabled = true;
+  } else {
+    console.log('entra al else')
+    botonSubmit.disabled = false;
+  }
 })
 
 
@@ -82,7 +90,7 @@ inputContrasenia.addEventListener('blur', function () {
   if (campoCompleto) {
     if (validarLongitud(inputContrasenia, 'contrasenia')) {
       //esto validarlo cuando se envíe el formulario
-      //  contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
+      contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
     }
   }
 })
@@ -91,52 +99,65 @@ inputContraseniaConfirmada.addEventListener('blur', function () {
   campoCompleto = validarCampo(inputContraseniaConfirmada)
   if (campoCompleto) {
     if (validarLongitud(inputContraseniaConfirmada, 'contrasenia')) {
-      // contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
+      contraseniasIguales(inputContrasenia, inputContraseniaConfirmada);
     }
   }
 })
 
-botonSubmit.addEventListener('click', function(){
+divChecks.addEventListener('click', function () {
   validarChecks(checkRolCompetidor, checkRolJuez)
 })
 
-//acá intenté que no se envien los datos del formulario si no son válidos todos los campos... no salió D:
-formulario.addEventListener('submit', function (event) {
-  event.preventDefault()
+// //acá intenté que no se envien los datos del formulario si no son válidos todos los campos... no salió D:
+// formulario.addEventListener('click', function (event) {
 
-  console.log('funca el submit event')
-  formularioValido = validarFormulario()
-  if (formularioValido) {
-    formulario.submit()
-  }
-}, true)
+//   event.preventDefault()
+
+//   console.log('funca el submit event')
+//   formularioValido = validarFormulario()
+//   if (formularioValido) {
+//     formulario.submit()
+//   }
+// }, true)
+
+// botonSubmit.addEventListener('submit', function (event) {
+//   if (validarFormulario()){
+//     event.stopPropagation()
+//     event.preventDefault()
+//   }
+
+// })
 
 function validarFormulario() {
   formularioValido = false;
   if (usuarioValido) {
+    console.log('1 usuario es valido')
     if (nombreValido) {
+      console.log('2 nombre es valido')
       if (apellidoValido) {
+        console.log('3 apellido es valido')
         if (emailValido) {
+          console.log('4 email es valido')
           contraseniasValidas = contraseniasIguales(inputContrasenia, inputContraseniaConfirmada)
-          if (contraseniasValidas){
-            if(validarChecks(checkRolCompetidor, checkRolJuez))
-            formularioValido = true
+          if (contraseniasValidas) {
+            console.log('5 contrasenias son validas')
+            if (validarChecks(checkRolCompetidor, checkRolJuez)) {
+              console.log('6 checks son validos')
+              formularioValido = true
+            }
           }
         }
       }
     }
   }
-  console.log(formularioValido, 'ENTRA A VALIDAR FORMULARIO')
   return formularioValido
 }
 
-function validarChecks(checkRolCompetidor, checkRolJuez){
+function validarChecks(checkRolCompetidor, checkRolJuez) {
   checkValidado = false;
-  if(checkRolCompetidor.checked){
-    console.log('competidor')
+  if (checkRolCompetidor.checked) {
     checkValidado = true;
-  }else if(checkRolJuez.checked){
-    console.log('juez')
+  } else if (checkRolJuez.checked) {
     checkValidado = true;
   }
   return checkValidado;
@@ -178,26 +199,31 @@ function validarLongitud(input, type) {
 }
 
 function contraseniasIguales(contrasenia, contraseniaRepetida) {
-  if (contrasenia.value === contraseniaRepetida.value) {
-    contrasenia.style.borderColor = "green";
-    contraseniaRepetida.style.borderColor = "green";
-    return true
+  if (validarCampo(contrasenia) && validarCampo(contraseniaRepetida)) {
+    if (contrasenia.value === contraseniaRepetida.value) {
+      contrasenia.style.borderColor = "green";
+      contraseniaRepetida.style.borderColor = "green";
+      return true
+    } else {
+      contrasenia.style.borderColor = "red";
+      contraseniaRepetida.style.borderColor = "red";
+    }
   } else {
-    contrasenia.style.borderColor = "red";
-    contraseniaRepetida.style.borderColor = "red";
+    return false
   }
 }
 
 
 //funcion que valida que el valor ingresado sea string
 function validarString(input) {
+  stringValidado = false
   string = input.value
   if (isNaN(string)) {
-    validarLongitud(input, 'otro')
+    stringValidado = validarLongitud(input, 'otro')
   } else {
     input.style.borderColor = "red";
   }
-  return false
+  return stringValidado
 }
 
 //función que comprueba que el mail tenga un @ entre strings
