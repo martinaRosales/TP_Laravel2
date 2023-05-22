@@ -29,6 +29,10 @@ Route::view('/timer', 'timer')->name('timer');
 Route::view('/asignarRoles', 'asignarRoles')->name('asignarRoles');
 Route::view('/resultados','resultados')->name('resultados');
 
+//obtención de datos de la bd
+Route::view('/obtenerDatos', 'acciones.obtenerCompetidores');
+
+
 // Competidores
 Route::get('/competidores', [CompetidorController::class, 'index'])->name('competidores.index'); // Mostramos la vista de la tabla de todos los competidores.
 Route::get('/competidores/crear', [CompetidorController::class, 'create'])->name('competidores.create'); // Mostramos la vista del formulario para cargar competidor.

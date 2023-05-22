@@ -9,7 +9,7 @@ usuarios[0] =
     email: 'aaaaa',
     rolSolicitado: 'juez',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 usuarios[1] =
 {
@@ -19,7 +19,7 @@ usuarios[1] =
     email: 'bbbbb',
     rolSolicitado: 'competidor',
     tieneRol: true,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[2] =
@@ -30,7 +30,7 @@ usuarios[2] =
     email: 'ccccccc',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[3] =
@@ -41,7 +41,7 @@ usuarios[3] =
     email: 'ddddd',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[4] =
@@ -52,7 +52,7 @@ usuarios[4] =
     email: 'eeee',
     rolSolicitado: 'juez',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[5] =
@@ -63,7 +63,7 @@ usuarios[5] =
     email: 'ffffff',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[6] =
@@ -74,7 +74,7 @@ usuarios[6] =
     email: 'gggggg',
     rolSolicitado: 'competidor',
     tieneRol: true,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[7] =
@@ -85,7 +85,7 @@ usuarios[7] =
     email: 'hhhhh',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[8] =
@@ -96,7 +96,7 @@ usuarios[8] =
     email: 'iiii',
     rolSolicitado: 'juez',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[9] =
@@ -107,7 +107,7 @@ usuarios[9] =
     email: 'jjjjj',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 usuarios[10] =
@@ -118,7 +118,7 @@ usuarios[10] =
     email: 'kkkkk',
     rolSolicitado: 'competidor',
     tieneRol: false,
-    rolObtenido: ''
+    rolActual: 'usuario'
 }
 
 
