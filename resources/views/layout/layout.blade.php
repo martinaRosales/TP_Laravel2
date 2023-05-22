@@ -4,6 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ asset('img/Logo.png') }}">
 
@@ -28,6 +29,12 @@
             border: solid 1px black;
         }
     </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('jqueryui/jquery-ui.min.css') }}">
+
+
+
 
     <title>@yield('title','PWA')</title>
 </head>
@@ -159,10 +166,43 @@
 
     <!-- Pagination -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/paginationjs/dist/pagination.css">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/paginationjs@2.1.5/dist/pagination.min.js"></script>
 
+    <!-- Script -->
+    <script src="{{ asset('jquery-3.7.0.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('jqueryui/jquery-ui.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
 
+            $("#pais").autocomplete({
+                source: function(request, response) {
+                    // Fetch data
+                    $.ajax({
+                        url: "{{route('competidores.buscarPaises')}}",
+                        type: 'post',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        dataType: "json",
+                        data: {
+                            search: request.term
+                        },
+                        success: function(data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function(event, ui) {
+                    // Set selection
+                    $('#pais').val(ui.item.label); // display the selected text
+                    // $('#employeeid').val(ui.item.value); // save selected id to input
+                    return false;
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>

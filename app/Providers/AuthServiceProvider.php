@@ -5,8 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class AuthServiceProvider extends ServiceProvider
-{
+class AuthServiceProvider extends ServiceProvider {
     /**
      * The model to policy mappings for the application.
      *
@@ -19,8 +18,7 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
-    public function boot(): void
-    {
+    public function boot(): void {
         $this->registerPolicies();
 
 
@@ -39,4 +37,5 @@ class AuthServiceProvider extends ServiceProvider
 
         // Define más Gates para otros roles si es necesario
     }
+
 }

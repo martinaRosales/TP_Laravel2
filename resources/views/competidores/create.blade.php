@@ -3,8 +3,8 @@
 @section('title', 'Cargar competidor')
 
 @section('contenido')
-  <form id="formulario" action="{{ route('registrar') }}" method="POST" class="m-2 p-2 border">
-    <h1 class="m-2 p-2">Inscribir Competidor</h1>
+  <h1>Inscribir Competidor</h1>
+  <form id="formulario" action="{{ route('competidores.store') }}" method="POST">
   @csrf
 
     <!-- Nombre competidor -->
@@ -119,24 +119,15 @@
         <input type="text" class="form-control" id="clasificacion" name="clasificacion" placeholder="Ingrese su posición en el ranking nacional" pattern="^\S+$" required />
       </div>
     </div>
-
-  <!-- Envio Form -->
+  </div>
+   <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
   <input type="submit" value="Registrar" class="btn btn-success">
 </form>
 
 <!-- Mensajes de Error de js-->
 <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
-<!-- Mensajes de error de la BD -->
-@include('layout.partials.mensajes')
-
-/*Swal.fire(
-  'Good job!',
-  'You clicked the button!',
-  'success'
-) */
 
 @endsection
 
 <script src="../js/validarForm2.js" type="module"></script>
-

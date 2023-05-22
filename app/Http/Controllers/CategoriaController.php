@@ -86,4 +86,12 @@ class CategoriaController extends Controller
         $categoria->delete();
         return to_route('categorias.index')->with('success', 'Categoria eliminada correctamente.');
     }
+
+
+    // Metodos personalizados.
+    public function imprimirDatos()
+    {
+        $categorias = Categoria::all();
+        return $categorias;
+    }
 }

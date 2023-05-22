@@ -16,6 +16,7 @@ import './validarForm2.js'
 import './timer2.js'
 import './validarRegistroUsuario.js'
 import './tablaUsuarios.js'
+import './carrusel.js'
 
 
 // function visualizarComp() {
@@ -268,6 +269,8 @@ import './tablaUsuarios.js'
 //     element.classList.remove("d-none");
 //   });
 // });
+
+
 
 
 

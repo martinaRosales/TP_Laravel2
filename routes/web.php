@@ -5,6 +5,7 @@ use App\Http\Controllers\RegistroUsuarioControlador;
 use App\Http\Controllers\LoginControlador;
 use App\Models\Rol;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,12 @@ Route::get('/categorias/{categoria}', [CategoriaController::class, 'show'])->nam
 Route::get('/categorias/{categoria}/editar', [CategoriaController::class, 'edit'])->name('categorias.edit'); // Mostramos la vista del formulario para editar una categoria.
 Route::patch('/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update'); // Actualizamos la categoria en la bd.
 Route::delete('/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy'); // Eliminamos una categoria de la bd.
+
+/* Route::view('/resultados_', 'categorias.index'); */
+// Obtenemos paises para AJAX
+Route::post('/competidores/crear',[CompetidorController::class, 'buscarPaises'])->name('competidores.buscarPaises');
+// Obtenemos categorias para AJAX
+Route::get('/resultados_', [CategoriaController::class, 'imprimirDatos'])->name('datosCategorias'); // Mostramos la vista de la tabla de todas los categorias.
 
 
 // Support folder
