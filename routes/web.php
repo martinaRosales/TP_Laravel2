@@ -63,10 +63,6 @@ Route::post('/competidores/crear',[CompetidorController::class, 'buscarPaises'])
 // Obtenemos categorias para AJAX
 Route::get('/resultados_', [CategoriaController::class, 'imprimirDatos'])->name('datosCategorias'); // Mostramos la vista de la tabla de todas los categorias.
 
-// Como evitar que un rol entre a una ruta que NO tiene permiso:
-// Ejem: Le agregamos el metodo middleware
-// Route::get('/categorias', [CategoriaController::class, 'index'])->middleware('can:categorias.index')->name('categorias.index');
-
 // Support folder
 Route::get( '/about', function() {
   return view( 'support.about' );
@@ -83,3 +79,15 @@ Route::post( '/login', [LoginControlador::class, 'login'] );
 Route::get( '/registro', [RegistroUsuarioControlador::class, 'show'] )->name( 'registro' );
 Route::post( '/registro', [RegistroUsuarioControlador::class, 'registro'] );
 Route::get( '/logout', [LoginControlador::class, 'logout'])->name( 'logout' );
+
+
+
+
+
+
+
+
+// Como evitar que un rol entre a una ruta que NO tiene permiso:
+// Se puede hacer desde aca o desde el controlador
+// Ejem desde aca: Le agregamos el metodo middleware y por parametro ponemos can:nombrePermiso.
+// Route::get('/categorias', [CategoriaController::class, 'index'])->middleware('can:categorias.index')->name('categorias.index');
