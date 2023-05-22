@@ -29,7 +29,7 @@ const armarCarrusel = (dom, jsonContenido) => {
     dom.innerHTML = `<div class="carousel-item "><div class='row justify-content-center'></div></div`;
     let i = 1;
     jsonContenido.forEach((imagen) => {
-        dom.lastElementChild.children[0].innerHTML += `<div class='col'><img class='img-fluid' src='${imagen.img}'></div>`;
+        dom.lastElementChild.children[0].innerHTML += `<div class='col-3'><a href='#!'><img class='img-fluid w-75' src='./img/${imagen.img}'></a></div>`;
         if (i % pantalla == 0 && i !== jsonContenido.length) {
             dom.innerHTML += `<div class="carousel-item "><div class='row justify-content-center'></div></div>`;
         }

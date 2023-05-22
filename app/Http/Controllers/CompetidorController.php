@@ -36,6 +36,7 @@ class CompetidorController extends Controller
         if ($userRol == 'Competidor') {
             return view('competidores.create');
         } elseif ($userRol == null) {
+        } else{
             return redirect('/')->withErrors('Debe ser un competidor para ingresar.');
         }
 
@@ -135,9 +136,10 @@ class CompetidorController extends Controller
         return to_route('competidores.index')->with('success', 'Competidor eliminado correctamente.');
     }
 
-    public function listar()
+    // Metodos personalizados.
+    public function imprimirDatos()
     {
-        $competidores = Competidor::get();
+        $competidores = Competidor::all();
         return $competidores;
     }
 }
