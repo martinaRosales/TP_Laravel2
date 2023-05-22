@@ -39,6 +39,8 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
+        // Asignar rol
+        // $user->roles()->sync($reqiest->rol)
         $usuario->update($request->validated());
         return redirect('/login')->with('success', 'Cuenta modificada correctamente');
     }

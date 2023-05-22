@@ -14,15 +14,15 @@ class RoleSeeder extends Seeder {
      */
     public function run(): void {
         //
-        $rol1 = Role::create(['name' => 'Admin']);
-        $rol2 = Role::create(['name' => 'Juez']);
-        $rol3 = Role::create(['name' => 'Competidor']);
+        $admin = Role::create(['name' => 'Admin']);
+        $juez = Role::create(['name' => 'Juez']);
+        $competidor = Role::create(['name' => 'Competidor']);
 
         // Creo un permiso y se lo asigno a un solo rol
-        Permission::create(['name' => 'ver competidores inscriptos'])->assignRole($rol1);
+        Permission::create(['name' => 'competidores.index'])->assignRole($admin);
         // Creo un permiso y se lo asigno a dos roles (admin y juez)
-        Permission::create(['name' => 'ver reloj'])->syncRoles([$rol1, $rol2]);
-        Permission::create(['name' => 'ver form inscripcion'])->syncRoles([$rol3]);
+        // Permission::create(['name' => 'ver reloj'])->syncRoles([$admin, $juez]);
+        // Permission::create(['name' => 'ver form inscripcion'])->syncRoles([$competidor]);
 
     }
 

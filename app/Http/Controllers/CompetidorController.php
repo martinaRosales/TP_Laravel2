@@ -8,7 +8,21 @@ use App\Models\Pais;
 
 use Illuminate\Support\Facades\Auth;
 
+use Spatie\Permission\Models\Role; // Spatie
+
 class CompetidorController extends Controller {
+
+    public function __construct(){
+        // Para proteger todas las rutas(index, show, create...) de los roles que no tienen permisos:
+        // $this->middleware('can:competidores.index');
+
+        // Para proteger una ruta especifica(ejem: index) de los roles que no tienen permisos:
+        // Usamos metodo only para especificar el metodo.
+        $this->middleware('can:competidores.index')->only('index');
+        // Para proteger dos rutas o mas:
+        // $this->middleware('can:competidores.edit')->only('edit', 'update');
+    }
+
     // Mostramos todos los competidores que estan en la bd.
     public function index() {
         $competidores = Competidor::get();

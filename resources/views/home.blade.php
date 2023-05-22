@@ -6,8 +6,10 @@ Home
 
 @section('contenido')
 
-@role('competidor')
-@endrole
+{{-- El hola lo van a ver todos los roles que tengan el permiso "competidores.index", por ahora los admin --}}
+@can("competidores.index")
+HOLAAAAAAAAA
+@endcan
 
 <!-- Fila del video presentacion -->
 <div class="row justify-content-center">
