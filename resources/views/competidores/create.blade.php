@@ -3,8 +3,9 @@
 @section('title', 'Cargar competidor')
 
 @section('contenido')
+ 
+  <form id="formulario" action="{{ route('competidores.store') }}" method="POST" class="border m-2 p-3 fs-5">
   <h1>Inscribir Competidor</h1>
-  <form id="formulario" action="{{ route('competidores.store') }}" method="POST">
   @csrf
 
     <!-- Nombre competidor -->
@@ -119,14 +120,19 @@
         <input type="text" class="form-control" id="clasificacion" name="clasificacion" placeholder="Ingrese su posición en el ranking nacional" pattern="^\S+$" required />
       </div>
     </div>
-  </div>
+  
    <!-- <button id='enviarBtn' type="submit" class="btn btn-success">Enviar</button> -->
-  <input type="submit" value="Registrar" class="btn btn-success">
+   <div class="row mb-3">
+      <div class="col-sm-8">
+        <input type="submit" value="Registrar" class="btn btn-success">
+      </div>
+    </div>
+    
 </form>
-
 <!-- Mensajes de Error de js-->
 <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
+<!-- Mensajes de error de la bd -->
 @include('layout.partials.mensajes')
 @endsection
 
