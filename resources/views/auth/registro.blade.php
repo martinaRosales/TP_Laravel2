@@ -57,25 +57,6 @@
                     <input type="password" id="repiteContrasenia" class="form-control form-control-lg" placeholder="Ingrese contraseña nuevamente" name="password_confirmacion" onblur="validarCampo('#password_confirmacion')" required />
                     <label class="form-label" for="repiteContraseña">Repita su contraseña</label>
                 </div>
-
-                <div>
-                    <div>Tipo de cuenta requerida</div>
-                    <div class="input-feedback" id="checksFeedback" for="checks">&nbsp;</div>
-                    <div class="checks" id="checks" required>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="rol" id="competidor" value="Competidor">
-                            <label class="form-check-label" for="competidor">
-                                Competidor
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="rol" id="juez" value="Juez">
-                            <label class="form-check-label" for="juez">
-                                Jurado
-                            </label>
-                        </div>
-                    </div>
-                </div>
                 <div class="text-center text-lg-start mt-4 pt-2">
                     <button type="submit" class="btn btn-primary btn-lg boton-submit" id="botonSubmit" style="padding-left: 2.5rem; padding-right: 2.5rem;" disabled>Registrarme</button>
                 </div>

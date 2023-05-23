@@ -19,13 +19,12 @@ class RegistroRequest extends FormRequest {
      */
     public function rules(): array {
         return [
-            'usuario' => 'required',
+            'usuario' => 'required|unique:usuarios',
             'nombre' => 'required',
             'apellido' => 'required',
             'email' => 'required',
             'password' => 'required',
             'password_confirmacion' => 'required|same:password',
-            'rol' => 'required'
         ];
     }
 }
